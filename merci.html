@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShipFast — Merci ! Votre call est confirmé 🚀</title>
+    <meta name="description" content="Votre call de découverte ShipFast est confirmé. On prépare tout pour transformer votre idée en MVP en 48h.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 'sans': ['Inter', 'system-ui', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc',
+                            400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca',
+                            800: '#3730a3', 900: '#312e81', 950: '#1e1b4b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .cta-gradient { background: linear-gradient(135deg, #4f46e5, #7c3aed); }
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .confetti {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 100;
+        }
+        .check-animation {
+            animation: scaleIn 0.5s ease-out;
+        }
+        @keyframes scaleIn {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .fade-up {
+            animation: fadeUp 0.6s ease-out 0.3s both;
+        }
+        @keyframes fadeUp {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        .fade-up-2 { animation-delay: 0.5s; }
+        .fade-up-3 { animation-delay: 0.7s; }
+        .fade-up-4 { animation-delay: 0.9s; }
+    </style>
+</head>
+<body class="font-sans text-gray-900 antialiased bg-white min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-lg border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-center h-16">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg cta-gradient flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <span class="text-xl font-bold text-gray-900">Ship<span class="text-brand-600">Fast</span></span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+
+        <!-- Success Icon -->
+        <div class="text-center mb-10">
+            <div class="check-animation inline-flex items-center justify-center w-24 h-24 rounded-full bg-green-100 mb-8">
+                <svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                </svg>
+            </div>
+
+            <h1 class="fade-up text-4xl sm:text-5xl font-black leading-tight mb-4">
+                Call confirmé ! <span class="gradient-text">🚀</span>
+            </h1>
+
+            <p class="fade-up fade-up-2 text-xl text-gray-600 max-w-lg mx-auto leading-relaxed">
+                Merci pour votre réservation. On a hâte de discuter de votre projet et de le transformer en MVP en 48h.
+            </p>
+        </div>
+
+        <!-- What Happens Next -->
+        <div class="fade-up fade-up-3 bg-gray-50 rounded-2xl border border-gray-100 p-8 sm:p-10 mb-10">
+            <h2 class="text-xl font-bold mb-6 flex items-center gap-3">
+                <span class="text-2xl">📋</span> Ce qui va se passer
+            </h2>
+            <div class="space-y-6">
+                <div class="flex gap-4 items-start">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center font-bold text-sm">1</div>
+                    <div>
+                        <h3 class="font-semibold mb-1">Confirmation par email</h3>
+                        <p class="text-gray-600 text-sm">Vous allez recevoir un email de confirmation avec le lien du call et les détails. Vérifiez vos spams si besoin.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center font-bold text-sm">2</div>
+                    <div>
+                        <h3 class="font-semibold mb-1">Call de découverte (15 min)</h3>
+                        <p class="text-gray-600 text-sm">On discute de votre idée, vos besoins, et on valide ensemble que le format MVP 48h est adapté à votre projet.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center font-bold text-sm">3</div>
+                    <div>
+                        <h3 class="font-semibold mb-1">Si c'est un match → on lance</h3>
+                        <p class="text-gray-600 text-sm">Paiement, formulaire d'onboarding ultra-détaillé, et 48h plus tard : votre MVP est livré sur GitHub. Simple.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prepare for the Call -->
+        <div class="fade-up fade-up-4 bg-brand-50 rounded-2xl border border-brand-100 p-8 sm:p-10 mb-10">
+            <h2 class="text-xl font-bold mb-4 flex items-center gap-3">
+                <span class="text-2xl">💡</span> Pour préparer le call
+            </h2>
+            <ul class="space-y-3 text-gray-700">
+                <li class="flex items-start gap-3">
+                    <span class="text-brand-500 mt-1">→</span>
+                    <span><strong>Votre idée en 2 phrases</strong> — le problème que vous résolvez et pour qui</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-brand-500 mt-1">→</span>
+                    <span><strong>3-5 fonctionnalités clés</strong> — le must-have de votre MVP</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-brand-500 mt-1">→</span>
+                    <span><strong>Exemples de produits similaires</strong> — pour qu'on comprenne votre vision</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-brand-500 mt-1">→</span>
+                    <span><strong>Votre timeline</strong> — quand voulez-vous lancer ?</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Stats Reassurance -->
+        <div class="grid grid-cols-3 gap-6 text-center mb-12">
+            <div class="p-4">
+                <div class="text-3xl font-black text-gray-900">48h</div>
+                <div class="text-sm text-gray-500 mt-1">Livraison</div>
+            </div>
+            <div class="p-4">
+                <div class="text-3xl font-black text-gray-900">1490€</div>
+                <div class="text-sm text-gray-500 mt-1">Prix fixe</div>
+            </div>
+            <div class="p-4">
+                <div class="text-3xl font-black text-gray-900">100%</div>
+                <div class="text-sm text-gray-500 mt-1">Code pro</div>
+            </div>
+        </div>
+
+        <!-- Back to Home -->
+        <div class="text-center">
+            <a href="index.html" class="inline-flex items-center gap-2 text-brand-600 font-semibold hover:text-brand-700 transition">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                Retour à l'accueil
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-100 py-8 mt-12">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="text-sm text-gray-400">© 2026 ShipFast. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Confetti Animation -->
+    <canvas class="confetti" id="confettiCanvas"></canvas>
+    <script>
+        // Simple confetti burst on load
+        const canvas = document.getElementById('confettiCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const colors = ['#6366f1', '#8b5cf6', '#a855f7', '#22c55e', '#eab308', '#ef4444', '#3b82f6'];
+        const particles = [];
+
+        for (let i = 0; i < 120; i++) {
+            particles.push({
+                x: canvas.width / 2,
+                y: canvas.height / 3,
+                vx: (Math.random() - 0.5) * 15,
+                vy: (Math.random() - 0.8) * 15,
+                size: Math.random() * 8 + 3,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                rotation: Math.random() * 360,
+                rotationSpeed: (Math.random() - 0.5) * 10,
+                gravity: 0.15,
+                opacity: 1,
+                decay: 0.005 + Math.random() * 0.01
+            });
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            let alive = false;
+
+            particles.forEach(p => {
+                if (p.opacity <= 0) return;
+                alive = true;
+
+                p.vy += p.gravity;
+                p.x += p.vx;
+                p.y += p.vy;
+                p.rotation += p.rotationSpeed;
+                p.opacity -= p.decay;
+
+                ctx.save();
+                ctx.translate(p.x, p.y);
+                ctx.rotate(p.rotation * Math.PI / 180);
+                ctx.globalAlpha = Math.max(0, p.opacity);
+                ctx.fillStyle = p.color;
+                ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+                ctx.restore();
+            });
+
+            if (alive) requestAnimationFrame(animate);
+            else canvas.style.display = 'none';
+        }
+
+        animate();
+    </script>
+
+</body>
+</html>

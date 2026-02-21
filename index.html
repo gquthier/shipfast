@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShipFast — Votre MVP prêt au marché en 48h pour 1490€</title>
+    <meta name="description" content="On développe votre MVP SaaS ou application prêt au marché en 48h pour 1490€. Du vrai code pro, pas du vibe code. Scalable, sécurisé, livré sur GitHub.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 'sans': ['Inter', 'system-ui', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            200: '#c7d2fe',
+                            300: '#a5b4fc',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            800: '#3730a3',
+                            900: '#312e81',
+                            950: '#1e1b4b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-gradient {
+            background: radial-gradient(ellipse at top, #eef2ff 0%, #ffffff 70%);
+        }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15); }
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4); }
+            50% { box-shadow: 0 0 0 12px rgba(99, 102, 241, 0); }
+        }
+        .feature-grid-bg {
+            background-image: radial-gradient(circle at 1px 1px, #e5e7eb 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        .vsl-placeholder {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%);
+        }
+        .cta-gradient {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        }
+        .cta-gradient:hover {
+            background: linear-gradient(135deg, #4338ca, #6d28d9);
+        }
+        .anti-vibe-gradient {
+            background: linear-gradient(135deg, #fef2f2 0%, #fff7ed 100%);
+        }
+        .timeline-line {
+            background: linear-gradient(to bottom, #c7d2fe, #6366f1, #c7d2fe);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-900 antialiased">
+
+    <!-- ============================================= -->
+    <!-- HEADER NAV -->
+    <!-- ============================================= -->
+    <header class="fixed top-0 w-full bg-white/80 backdrop-blur-lg border-b border-gray-100 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg cta-gradient flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <span class="text-xl font-bold text-gray-900">Ship<span class="text-brand-600">Fast</span></span>
+                </a>
+
+                <!-- Nav Links -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+                    <a href="#features" class="hover:text-brand-600 transition">Avantages</a>
+                    <a href="#process" class="hover:text-brand-600 transition">Process</a>
+                    <a href="#pricing" class="hover:text-brand-600 transition">Tarif</a>
+                    <a href="#booking" class="hover:text-brand-600 transition">Réserver</a>
+                    <a href="#faq" class="hover:text-brand-600 transition">FAQ</a>
+                </nav>
+
+                <!-- CTA -->
+                <div class="flex items-center gap-3">
+                    <a href="#booking" class="hidden sm:inline-flex items-center px-5 py-2.5 text-sm font-semibold text-white cta-gradient rounded-full hover:shadow-lg transition-all">
+                        Réserver un call →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================= -->
+    <!-- HERO SECTION -->
+    <!-- ============================================= -->
+    <section class="hero-gradient pt-28 pb-8 sm:pt-36 sm:pb-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-sm font-medium mb-8">
+                <span class="flex h-2 w-2 rounded-full bg-brand-500 animate-pulse"></span>
+                1490€ tout compris · Livré en 48h
+            </div>
+
+            <!-- Headline -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight mb-6">
+                Votre MVP prêt au marché<br>
+                en <span class="gradient-text">48 heures</span><br>
+                pour 1490€
+            </h1>
+
+            <!-- Subheadline -->
+            <p class="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+                On transforme votre idée en produit fonctionnel avec du <strong>vrai code pro</strong> — scalable, sécurisé, livré sur GitHub. Pas du vibe code jetable.
+            </p>
+
+            <!-- VSL CTA -->
+            <a href="#vsl" class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-red-50 text-red-600 font-semibold hover:bg-red-100 transition-all group mb-4">
+                <span class="flex items-center justify-center w-10 h-10 rounded-full bg-red-500 text-white group-hover:scale-110 transition-transform">
+                    <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </span>
+                Regardez la vidéo
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- VSL VIDEO SECTION -->
+    <!-- ============================================= -->
+    <section id="vsl" class="py-4 sm:py-8">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Video Placeholder -->
+            <div class="vsl-placeholder rounded-2xl aspect-video flex items-center justify-center relative overflow-hidden shadow-2xl">
+                <div class="absolute inset-0 opacity-10">
+                    <div class="absolute top-0 left-0 w-full h-full" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22><rect width=%2240%22 height=%2240%22 fill=%22none%22 stroke=%22white%22 stroke-width=%220.5%22/></svg>');"></div>
+                </div>
+                <!-- Play Button -->
+                <button class="relative z-10 flex items-center justify-center w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm border-2 border-white/40 hover:bg-white/30 transition-all pulse-glow cursor-pointer">
+                    <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <!-- Embed your VSL here: replace this div with an iframe/video -->
+                <!-- <iframe src="YOUR_VSL_URL" ...></iframe> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- PRIMARY CTA -->
+    <!-- ============================================= -->
+    <section class="py-8 sm:py-12">
+        <div class="text-center">
+            <a href="#booking" class="inline-flex items-center px-8 py-4 text-base font-bold text-white cta-gradient rounded-full hover:shadow-xl hover:shadow-brand-500/25 transition-all">
+                Lancer mon MVP maintenant →
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- SOCIAL PROOF / ANTI-VIBE CODE BANNER -->
+    <!-- ============================================= -->
+    <section class="py-8 sm:py-12">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="anti-vibe-gradient rounded-2xl p-8 sm:p-10 border border-red-100">
+                <div class="grid md:grid-cols-4 gap-6 text-center">
+                    <div>
+                        <div class="text-3xl font-black text-gray-900">48h</div>
+                        <div class="text-sm text-gray-600 mt-1">Délai de livraison</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-black text-gray-900">1490€</div>
+                        <div class="text-sm text-gray-600 mt-1">Prix fixe, tout compris</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-black text-gray-900">10x</div>
+                        <div class="text-sm text-gray-600 mt-1">Moins cher qu'une agence</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-black text-gray-900">100%</div>
+                        <div class="text-sm text-gray-600 mt-1">Code pro, pas vibe code</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- FEATURES (3 sections — like LazyRank layout) -->
+    <!-- ============================================= -->
+    <section id="features" class="py-16 sm:py-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Feature 1: Speed -->
+            <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center mb-24">
+                <div>
+                    <div class="inline-flex items-center px-3 py-1 rounded-full bg-brand-50 text-brand-600 text-xs font-semibold uppercase tracking-wide mb-4">
+                        ⚡ Livraison express
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-6 leading-tight">
+                        48h chrono.<br>Votre MVP est live.
+                    </h2>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                        Vous remplissez un formulaire détaillé avec votre idée. Notre IA + nos seniors transforment ça en MVP fonctionnel en 48 heures. Pas en semaines. Pas en mois. <strong>En 2 jours.</strong>
+                    </p>
+                    <p class="text-gray-500 text-base">
+                        <strong>Résultat :</strong> pendant que les autres cherchent encore une agence, vous êtes déjà en production.
+                    </p>
+                </div>
+                <!-- Visual -->
+                <div class="relative">
+                    <div class="feature-grid-bg rounded-2xl p-8 bg-gray-50 border border-gray-100">
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm border border-gray-100">
+                                <div class="w-10 h-10 rounded-lg bg-green-100 text-green-600 flex items-center justify-center font-bold text-sm">H0</div>
+                                <div>
+                                    <div class="font-semibold text-sm">Formulaire rempli</div>
+                                    <div class="text-xs text-gray-500">Votre brief détaillé est soumis</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm border border-gray-100">
+                                <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-sm">H1</div>
+                                <div>
+                                    <div class="font-semibold text-sm">Architecture validée</div>
+                                    <div class="text-xs text-gray-500">Stack, DB, API définis par nos seniors</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm border border-gray-100">
+                                <div class="w-10 h-10 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center font-bold text-sm">H24</div>
+                                <div>
+                                    <div class="font-semibold text-sm">V1 en développement</div>
+                                    <div class="text-xs text-gray-500">Code généré, reviewé, testé</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm border border-brand-100 ring-2 ring-brand-500/20">
+                                <div class="w-10 h-10 rounded-lg bg-brand-100 text-brand-600 flex items-center justify-center font-bold text-sm">H48</div>
+                                <div>
+                                    <div class="font-semibold text-sm text-brand-700">MVP livré sur GitHub 🚀</div>
+                                    <div class="text-xs text-gray-500">Repo clean, docs, prêt à déployer</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 2: Anti Vibe Code -->
+            <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center mb-24">
+                <!-- Visual (left on desktop) -->
+                <div class="order-2 md:order-1 relative">
+                    <div class="feature-grid-bg rounded-2xl p-8 bg-gray-50 border border-gray-100">
+                        <!-- Comparison -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-red-50 border border-red-200 rounded-xl p-5">
+                                <div class="text-red-500 font-bold text-sm mb-3 flex items-center gap-2">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/></svg>
+                                    Vibe Code
+                                </div>
+                                <ul class="space-y-2 text-xs text-gray-600">
+                                    <li>❌ Code spaghetti</li>
+                                    <li>❌ Failles de sécurité</li>
+                                    <li>❌ Impossible à maintenir</li>
+                                    <li>❌ Ne scale pas</li>
+                                    <li>❌ Aucune review</li>
+                                </ul>
+                            </div>
+                            <div class="bg-green-50 border border-green-200 rounded-xl p-5">
+                                <div class="text-green-600 font-bold text-sm mb-3 flex items-center gap-2">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                    ShipFast
+                                </div>
+                                <ul class="space-y-2 text-xs text-gray-600">
+                                    <li>✅ Architecture clean</li>
+                                    <li>✅ Sécurité dès le jour 1</li>
+                                    <li>✅ Facile à maintenir</li>
+                                    <li>✅ Prêt à scaler</li>
+                                    <li>✅ Reviewé par des seniors</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Text -->
+                <div class="order-1 md:order-2">
+                    <div class="inline-flex items-center px-3 py-1 rounded-full bg-red-50 text-red-600 text-xs font-semibold uppercase tracking-wide mb-4">
+                        🛡️ Anti vibe-code
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-6 leading-tight">
+                        Du vrai code pro.<br>Pas du vibe code jetable.
+                    </h2>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                        Le vibe coding produit du code <strong>impossible à maintenir</strong>, plein de failles, et qui casse dès qu'on veut scaler. Notre approche : l'IA génère, <strong>nos seniors reviewent</strong>. Le résultat : du code propre, sécurisé, documenté.
+                    </p>
+                    <p class="text-gray-500 text-base">
+                        <strong>Résultat :</strong> un codebase que vous pouvez reprendre, faire évoluer, et montrer à des investisseurs sans honte.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Feature 3: Scalable & AI-ready -->
+            <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div>
+                    <div class="inline-flex items-center px-3 py-1 rounded-full bg-green-50 text-green-600 text-xs font-semibold uppercase tracking-wide mb-4">
+                        🚀 Prêt à scaler
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-6 leading-tight">
+                        Livré sur GitHub.<br>Prêt à itérer avec l'IA.
+                    </h2>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                        Vous recevez un repo GitHub complet avec documentation, architecture claire, et code commenté. Continuez à développer vous-même avec <strong>Cursor, Claude, ou votre équipe</strong>. Le code est fait pour être repris.
+                    </p>
+                    <p class="text-gray-500 text-base">
+                        <strong>Résultat :</strong> pas de vendor lock-in. Votre code, votre repo, votre produit. 100% ownership.
+                    </p>
+                </div>
+                <!-- Visual -->
+                <div class="relative">
+                    <div class="feature-grid-bg rounded-2xl p-8 bg-gray-50 border border-gray-100">
+                        <div class="bg-gray-900 rounded-xl p-5 font-mono text-sm overflow-hidden">
+                            <div class="flex items-center gap-2 mb-4">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                                <span class="text-gray-500 text-xs ml-2">terminal</span>
+                            </div>
+                            <div class="space-y-1.5 text-green-400 text-xs">
+                                <div><span class="text-gray-500">$</span> git clone your-mvp.git</div>
+                                <div class="text-gray-500">Cloning into 'your-mvp'...</div>
+                                <div><span class="text-gray-500">$</span> ls</div>
+                                <div class="text-blue-400">📁 src/      📁 docs/     📁 tests/</div>
+                                <div class="text-blue-400">📄 README.md 📄 .env.example</div>
+                                <div><span class="text-gray-500">$</span> npm run dev</div>
+                                <div class="text-green-300">✓ Server running on localhost:3000</div>
+                                <div class="text-green-300">✓ Database connected</div>
+                                <div class="text-green-300">✓ All 47 tests passing</div>
+                                <div class="text-yellow-400 mt-2">🚀 Your MVP is ready.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- HOW IT WORKS / PROCESS -->
+    <!-- ============================================= -->
+    <section id="process" class="py-16 sm:py-24 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center px-3 py-1 rounded-full bg-brand-50 text-brand-600 text-xs font-semibold uppercase tracking-wide mb-4">
+                    Comment ça marche
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold">
+                    3 étapes. 48 heures. C'est tout.
+                </h2>
+            </div>
+
+            <div class="space-y-8">
+                <!-- Step 1 -->
+                <div class="flex gap-6 items-start">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-2xl cta-gradient text-white font-bold flex items-center justify-center text-lg shadow-lg shadow-brand-500/25">1</div>
+                    <div class="bg-white rounded-2xl p-6 sm:p-8 flex-1 border border-gray-100 shadow-sm">
+                        <h3 class="text-xl font-bold mb-2">Vous payez & remplissez le formulaire</h3>
+                        <p class="text-gray-600">Un questionnaire ultra-détaillé sur votre idée : fonctionnalités, cible, design, modèle business... Plus vous êtes précis, plus le MVP sera exactement ce que vous voulez. <strong>30 minutes de votre temps.</strong></p>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="flex gap-6 items-start">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-2xl cta-gradient text-white font-bold flex items-center justify-center text-lg shadow-lg shadow-brand-500/25">2</div>
+                    <div class="bg-white rounded-2xl p-6 sm:p-8 flex-1 border border-gray-100 shadow-sm">
+                        <h3 class="text-xl font-bold mb-2">Notre IA + nos seniors construisent</h3>
+                        <p class="text-gray-600">Votre brief est transformé en architecture technique, puis en code fonctionnel. L'IA accélère, <strong>nos développeurs seniors reviewent chaque ligne</strong>. Sécurité, performance, maintenabilité — zéro compromis.</p>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="flex gap-6 items-start">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-2xl cta-gradient text-white font-bold flex items-center justify-center text-lg shadow-lg shadow-brand-500/25">3</div>
+                    <div class="bg-white rounded-2xl p-6 sm:p-8 flex-1 border border-gray-100 shadow-sm">
+                        <h3 class="text-xl font-bold mb-2">Vous recevez votre MVP sur GitHub</h3>
+                        <p class="text-gray-600">En 48h, vous recevez un repo GitHub complet : code source, documentation, tests, instructions de déploiement. <strong>Prêt à lancer. Prêt à scaler.</strong> Et vous pouvez discuter directement avec notre IA pour des ajustements.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- WHAT YOU GET -->
+    <!-- ============================================= -->
+    <section class="py-16 sm:py-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Ce que vous recevez</h2>
+                <p class="text-gray-600 text-lg">Tout ce qu'il faut pour lancer, rien de superflu.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card-hover p-6 rounded-2xl bg-white border border-gray-100 shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center mb-4 text-xl">💻</div>
+                    <h3 class="font-bold mb-2">Code source complet</h3>
+                    <p class="text-sm text-gray-600">Front-end + back-end + base de données. Architecture propre, code commenté, prêt à déployer.</p>
+                </div>
+                <div class="card-hover p-6 rounded-2xl bg-white border border-gray-100 shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-green-50 text-green-600 flex items-center justify-center mb-4 text-xl">🧪</div>
+                    <h3 class="font-bold mb-2">Tests automatisés</h3>
+                    <p class="text-sm text-gray-600">Tests unitaires et d'intégration pour s'assurer que tout fonctionne. Confiance dès le jour 1.</p>
+                </div>
+                <div class="card-hover p-6 rounded-2xl bg-white border border-gray-100 shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-4 text-xl">📖</div>
+                    <h3 class="font-bold mb-2">Documentation complète</h3>
+                    <p class="text-sm text-gray-600">README, architecture docs, guide de déploiement. Votre prochain dev comprend tout en 10 minutes.</p>
+                </div>
+                <div class="card-hover p-6 rounded-2xl bg-white border border-gray-100 shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center mb-4 text-xl">🔒</div>
+                    <h3 class="font-bold mb-2">Sécurité intégrée</h3>
+                    <p class="text-sm text-gray-600">Auth, validation, HTTPS, protection CSRF/XSS. Pas de failles béantes comme en vibe code.</p>
+                </div>
+                <div class="card-hover p-6 rounded-2xl bg-white border border-gray-100 shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4 text-xl">🤖</div>
+                    <h3 class="font-bold mb-2">Accès IA pour reviews</h3>
+                    <p class="text-sm text-gray-600">Discutez directement avec notre IA pour comprendre le code, demander des ajustements, poser vos questions.</p>
+                </div>
+                <div class="card-hover p-6 rounded-2xl bg-white border border-gray-100 shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-4 text-xl">🔄</div>
+                    <h3 class="font-bold mb-2">100% ownership</h3>
+                    <p class="text-sm text-gray-600">Votre repo GitHub, votre code, votre produit. Zéro vendor lock-in. Continuez seul ou avec nous.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- CTA MID-PAGE -->
+    <!-- ============================================= -->
+    <section class="py-12">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-4">Prêt à transformer votre idée en produit ?</h2>
+            <p class="text-gray-600 text-lg mb-8">Réservez votre slot et recevez votre MVP fonctionnel en 48 heures.</p>
+            <a href="#booking" class="inline-flex items-center px-8 py-4 text-base font-bold text-white cta-gradient rounded-full hover:shadow-xl hover:shadow-brand-500/25 transition-all">
+                Lancer mon MVP maintenant →
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- PRICING SECTION -->
+    <!-- ============================================= -->
+    <section id="pricing" class="py-16 sm:py-24 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center px-3 py-1 rounded-full bg-brand-50 text-brand-600 text-xs font-semibold uppercase tracking-wide mb-4">
+                    Tarif unique
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-3">Un prix. Un livrable. Zéro surprise.</h2>
+                <p class="text-gray-600">Pas de devis, pas de négociation, pas de frais cachés.</p>
+            </div>
+
+            <!-- Single Pricing Card -->
+            <div class="max-w-lg mx-auto">
+                <div class="bg-white rounded-3xl border-2 border-brand-500 shadow-xl shadow-brand-500/10 p-8 sm:p-10 relative overflow-hidden">
+                    <!-- Popular badge -->
+                    <div class="absolute top-0 right-0 cta-gradient text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl">
+                        OFFRE DE LANCEMENT
+                    </div>
+
+                    <div class="text-center mb-8">
+                        <h3 class="text-xl font-bold mb-1">MVP Complet — 48h</h3>
+                        <p class="text-gray-500 text-sm">Tout inclus, livré sur GitHub</p>
+                    </div>
+
+                    <div class="text-center mb-8">
+                        <div class="flex items-baseline justify-center gap-2">
+                            <span class="text-5xl sm:text-6xl font-black text-gray-900">1490</span>
+                            <span class="text-2xl font-bold text-gray-400">€</span>
+                        </div>
+                        <div class="text-gray-500 text-sm mt-2">Paiement unique · TTC</div>
+                    </div>
+
+                    <a href="#booking" class="block w-full py-4 text-center text-white font-bold cta-gradient rounded-xl hover:shadow-lg transition-all text-lg mb-8">
+                        Lancer mon MVP →
+                    </a>
+
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            <span class="text-sm text-gray-700">MVP fonctionnel livré en <strong>48 heures</strong></span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            <span class="text-sm text-gray-700">Code source complet sur <strong>GitHub</strong></span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            <span class="text-sm text-gray-700">Front-end + back-end + base de données</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            <span class="text-sm text-gray-700">Tests automatisés + documentation</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            <span class="text-sm text-gray-700">Sécurité intégrée (auth, validation, HTTPS)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            <span class="text-sm text-gray-700">Reviewé par des développeurs seniors</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            <span class="text-sm text-gray-700">Accès IA pour Q&A et ajustements</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            <span class="text-sm text-gray-700"><strong>100% ownership</strong> — votre code, votre repo</span>
+                        </li>
+                    </ul>
+
+                    <div class="mt-8 pt-6 border-t border-gray-100 text-center">
+                        <p class="text-xs text-gray-400">Satisfait ou retravaillé. On ne lâche pas tant que c'est pas bien.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparison Row -->
+            <div class="mt-12 text-center">
+                <p class="text-sm text-gray-500 mb-4">Comment on se compare aux alternatives :</p>
+                <div class="overflow-x-auto">
+                    <table class="mx-auto text-sm">
+                        <thead>
+                            <tr class="text-gray-500">
+                                <th class="px-4 py-2 text-left"></th>
+                                <th class="px-4 py-2 font-bold text-brand-600">ShipFast</th>
+                                <th class="px-4 py-2">Agence classique</th>
+                                <th class="px-4 py-2">Freelance</th>
+                                <th class="px-4 py-2">Vibe Code (seul)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                            <tr class="border-t border-gray-100">
+                                <td class="px-4 py-3 font-medium text-left">Prix</td>
+                                <td class="px-4 py-3 font-bold text-brand-600">1 490€</td>
+                                <td class="px-4 py-3">8 000 — 30 000€</td>
+                                <td class="px-4 py-3">3 000 — 15 000€</td>
+                                <td class="px-4 py-3">20€/mois (outil)</td>
+                            </tr>
+                            <tr class="border-t border-gray-100">
+                                <td class="px-4 py-3 font-medium text-left">Délai</td>
+                                <td class="px-4 py-3 font-bold text-brand-600">48 heures</td>
+                                <td class="px-4 py-3">6 — 12 semaines</td>
+                                <td class="px-4 py-3">4 — 8 semaines</td>
+                                <td class="px-4 py-3">1 — 4 semaines</td>
+                            </tr>
+                            <tr class="border-t border-gray-100">
+                                <td class="px-4 py-3 font-medium text-left">Qualité code</td>
+                                <td class="px-4 py-3">✅ Pro</td>
+                                <td class="px-4 py-3">✅ Pro</td>
+                                <td class="px-4 py-3">⚠️ Variable</td>
+                                <td class="px-4 py-3">❌ Fragile</td>
+                            </tr>
+                            <tr class="border-t border-gray-100">
+                                <td class="px-4 py-3 font-medium text-left">Scalable</td>
+                                <td class="px-4 py-3">✅</td>
+                                <td class="px-4 py-3">✅</td>
+                                <td class="px-4 py-3">⚠️</td>
+                                <td class="px-4 py-3">❌</td>
+                            </tr>
+                            <tr class="border-t border-gray-100">
+                                <td class="px-4 py-3 font-medium text-left">Sécurité</td>
+                                <td class="px-4 py-3">✅</td>
+                                <td class="px-4 py-3">✅</td>
+                                <td class="px-4 py-3">⚠️</td>
+                                <td class="px-4 py-3">❌</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- CALENDLY BOOKING SECTION -->
+    <!-- ============================================= -->
+    <section id="booking" class="py-16 sm:py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <div class="inline-flex items-center px-3 py-1 rounded-full bg-green-50 text-green-600 text-xs font-semibold uppercase tracking-wide mb-4">
+                    🗓️ Réservez votre call
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-3">Discutons de votre projet</h2>
+                <p class="text-gray-600 text-lg max-w-xl mx-auto">15 minutes pour comprendre votre idée, valider la faisabilité en 48h, et répondre à toutes vos questions. Gratuit, sans engagement.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-gray-200 shadow-lg overflow-hidden">
+                <!-- Calendly inline widget -->
+                <div class="calendly-inline-widget" data-url="https://calendly.com/gauthierthiry/audit-seo-gratuit-lazyrank-clone?primary_color=3789ff" style="min-width:320px;height:700px;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- FAQ -->
+    <!-- ============================================= -->
+    <section id="faq" class="py-16 sm:py-24">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold">Questions fréquentes</h2>
+            </div>
+
+            <div class="space-y-4">
+                <details class="group bg-white rounded-2xl border border-gray-100 shadow-sm">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-gray-900 hover:text-brand-600 transition">
+                        C'est vraiment livré en 48 heures ?
+                        <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600">
+                        Oui. À partir du moment où vous validez le paiement et remplissez le formulaire d'onboarding, notre système se met en route immédiatement. L'IA génère l'architecture et le code, nos développeurs seniors reviewent et affinent. En 48h, vous recevez un lien vers votre repo GitHub avec le MVP fonctionnel.
+                    </div>
+                </details>
+
+                <details class="group bg-white rounded-2xl border border-gray-100 shadow-sm">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-gray-900 hover:text-brand-600 transition">
+                        Quelle est la différence avec du vibe coding ?
+                        <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600">
+                        Le vibe coding, c'est demander à ChatGPT de générer du code sans supervision. Résultat : code spaghetti, failles de sécurité, impossible à maintenir. Chez nous, l'IA est un outil — pas le pilote. Chaque ligne est reviewée par des développeurs seniors. Le résultat est un code propre, sécurisé, documenté, et prêt à scaler.
+                    </div>
+                </details>
+
+                <details class="group bg-white rounded-2xl border border-gray-100 shadow-sm">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-gray-900 hover:text-brand-600 transition">
+                        Quelles technologies utilisez-vous ?
+                        <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600">
+                        On adapte le stack à votre projet : React/Next.js, Node.js, Python, Supabase, PostgreSQL, Stripe, Tailwind CSS... On privilégie les technologies modernes, bien documentées, avec un écosystème IA solide (facile à reprendre avec Cursor, Claude, Copilot). Pas de techno obscure.
+                    </div>
+                </details>
+
+                <details class="group bg-white rounded-2xl border border-gray-100 shadow-sm">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-gray-900 hover:text-brand-600 transition">
+                        Et si le MVP ne correspond pas à ce que je veux ?
+                        <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600">
+                        Vous avez accès direct à notre IA pour discuter du code, demander des ajustements et des corrections. On ne lâche pas tant que le livrable n'est pas à la hauteur. Le formulaire d'onboarding est conçu pour capturer exactement vos besoins — plus vous êtes précis, plus le résultat est fidèle.
+                    </div>
+                </details>
+
+                <details class="group bg-white rounded-2xl border border-gray-100 shadow-sm">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-gray-900 hover:text-brand-600 transition">
+                        Je peux continuer à développer le projet ensuite ?
+                        <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600">
+                        Absolument. C'est même le but. Vous recevez 100% du code source sur votre GitHub. Le code est documenté, structuré, et optimisé pour être repris — par vous-même avec l'IA (Cursor, Claude), par un développeur, ou par une équipe. Zéro vendor lock-in.
+                    </div>
+                </details>
+
+                <details class="group bg-white rounded-2xl border border-gray-100 shadow-sm">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-gray-900 hover:text-brand-600 transition">
+                        Vous faites des apps mobiles aussi ?
+                        <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600">
+                        Pour un MVP en 48h, on se concentre sur les web apps (responsive, PWA). Pour les apps mobiles natives (iOS/Android), contactez-nous pour un devis personnalisé avec un délai adapté. La plupart des MVPs n'ont pas besoin d'une app native au démarrage.
+                    </div>
+                </details>
+
+                <details class="group bg-white rounded-2xl border border-gray-100 shadow-sm">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-gray-900 hover:text-brand-600 transition">
+                        Comment c'est possible à ce prix ?
+                        <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600">
+                        L'IA fait le gros du travail en termes de volume de code. Nos développeurs seniors se concentrent sur ce qui compte : l'architecture, la sécurité, la review, et les décisions techniques complexes. C'est cette combinaison IA + expertise humaine qui nous permet d'être 10x plus rapide et 10x moins cher qu'une agence classique.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- FINAL CTA BANNER -->
+    <!-- ============================================= -->
+    <section class="py-16 sm:py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="cta-gradient rounded-3xl p-8 sm:p-14 text-center text-white relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10">
+                    <div class="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-white"></div>
+                    <div class="absolute -bottom-20 -left-20 w-48 h-48 rounded-full bg-white"></div>
+                </div>
+                <div class="relative z-10">
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-4">Lancez votre MVP aujourd'hui</h2>
+                    <p class="text-lg text-brand-100 mb-8 max-w-xl mx-auto">
+                        1490€. 48 heures. Code pro. Pas de vibe code.<br>Arrêtez de planifier, commencez à shipper.
+                    </p>
+                    <a href="#booking" class="inline-flex items-center px-8 py-4 text-base font-bold text-brand-700 bg-white rounded-full hover:bg-brand-50 hover:shadow-xl transition-all">
+                        Lancer mon MVP →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- FOOTER -->
+    <!-- ============================================= -->
+    <footer class="border-t border-gray-100 py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-2">
+                    <div class="w-7 h-7 rounded-lg cta-gradient flex items-center justify-center">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <span class="text-lg font-bold">Ship<span class="text-brand-600">Fast</span></span>
+                </div>
+                <div class="flex items-center gap-6 text-sm text-gray-500">
+                    <a href="#" class="hover:text-gray-700">CGV</a>
+                    <a href="#" class="hover:text-gray-700">Mentions légales</a>
+                    <a href="#" class="hover:text-gray-700">Contact</a>
+                </div>
+                <p class="text-sm text-gray-400">© 2026 ShipFast. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
