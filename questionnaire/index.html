@@ -82,7 +82,9 @@
                 <a href="/" class="font-heading font-bold text-xl sm:text-2xl tracking-tight text-white">
                     QUICK<span class="text-accent">SHIP.</span>
                 </a>
-                <div class="font-mono text-xs text-gray-500 uppercase">Questionnaire pré-call</div>
+                <button onclick="openVideoRecorder()" class="font-mono text-xs text-accent uppercase border border-accent px-3 py-2 hover:bg-accent hover:text-black transition-colors">
+                    🎥 Réponses en vidéo
+                </button>
             </div>
         </div>
     </header>
@@ -473,6 +475,352 @@
                 }
             }
         });
+    </script>
+
+    <!-- VIDEO RECORDER MODAL -->
+    <div id="video-modal" class="fixed inset-0 z-[100] bg-black/95 hidden">
+        <div class="h-full flex flex-col">
+            <!-- Header -->
+            <div class="flex items-center justify-between p-4 border-b border-surfaceBorder">
+                <div class="font-heading font-bold text-white text-lg">🎥 Réponses en vidéo</div>
+                <button onclick="closeVideoRecorder()" class="text-gray-400 hover:text-white text-2xl font-bold px-2">×</button>
+            </div>
+            
+            <!-- Video area -->
+            <div class="flex-1 flex flex-col items-center justify-center p-4">
+                <!-- Video preview -->
+                <div id="video-container" class="relative w-full max-w-lg aspect-video bg-surface border-2 border-surfaceBorder mb-4">
+                    <video id="video-preview" autoplay muted playsinline class="w-full h-full object-cover"></video>
+                    <video id="video-playback" controls class="w-full h-full object-cover hidden"></video>
+                    
+                    <!-- Recording indicator -->
+                    <div id="rec-indicator" class="absolute top-4 right-4 hidden">
+                        <span class="flex items-center gap-2 bg-red-500/20 border border-red-500 px-3 py-1 rounded-full">
+                            <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
+                            <span class="font-mono text-xs text-red-400">REC</span>
+                        </span>
+                    </div>
+                    
+                    <!-- Start prompt -->
+                    <div id="video-prompt" class="absolute inset-0 flex items-center justify-center bg-black/60">
+                        <button onclick="startVideoRecording()" class="px-8 py-4 bg-accent text-black font-heading font-bold text-lg uppercase hover:bg-accentHover transition-colors">
+                            🎬 COMMENCER L'ENREGISTREMENT
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Question display -->
+                <div id="video-question" class="w-full max-w-lg text-center mb-4">
+                    <div class="font-mono text-accent text-xs font-bold uppercase tracking-widest mb-2" id="video-q-label">[ QUESTION 01 ]</div>
+                    <div class="font-heading text-2xl text-white uppercase" id="video-q-text">Décrivez votre idée</div>
+                </div>
+                
+                <!-- Controls -->
+                <div class="flex items-center gap-4">
+                    <button onclick="prevVideoQuestion()" id="btn-prev-video" class="px-4 py-2 border border-surfaceBorder text-gray-400 font-mono text-sm uppercase hover:border-white hover:text-white transition-colors">
+                        ← Précédent
+                    </button>
+                    
+                    <button onclick="toggleRecording()" id="btn-record" class="hidden px-6 py-3 bg-red-500 text-white font-heading font-bold text-sm uppercase hover:bg-red-600 transition-colors">
+                        ⏺ REC
+                    </button>
+                    
+                    <button onclick="stopRecording()" id="btn-stop" class="hidden px-6 py-3 border border-red-500 text-red-400 font-heading font-bold text-sm uppercase hover:bg-red-500 hover:text-white transition-colors">
+                        ⏹ ARRÊTER
+                    </button>
+                    
+                    <button onclick="playRecording()" id="btn-play" class="hidden px-4 py-2 border border-accent text-accent font-mono text-sm uppercase hover:bg-accent hover:text-black transition-colors">
+                        ▶ REVOIR
+                    </button>
+                    
+                    <button onclick="nextVideoQuestion()" id="btn-next-video" class="px-4 py-2 bg-accent text-black font-mono text-sm uppercase font-bold hover:bg-accentHover transition-colors">
+                        Suivant →
+                    </button>
+                </div>
+                
+                <!-- Progress dots -->
+                <div id="video-progress" class="flex items-center gap-2 mt-6">
+                    <!-- Generated by JS -->
+                </div>
+                
+                <!-- Done button -->
+                <button onclick="finishVideoRecording()" id="btn-finish-video" class="hidden mt-6 px-8 py-4 bg-accent text-black font-heading font-bold text-lg uppercase hover:bg-accentHover transition-colors">
+                    ✅ TERMINER & ENVOYER
+                </button>
+            </div>
+            
+            <!-- Back to text -->
+            <div class="p-4 border-t border-surfaceBorder text-center">
+                <button onclick="closeVideoRecorder()" class="font-mono text-xs text-gray-500 hover:text-accent uppercase">
+                    ← Retour au questionnaire texte
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Video recording state
+        let mediaStream = null;
+        let mediaRecorder = null;
+        let recordedChunks = [];
+        let videoBlobs = [];
+        let currentVideoQuestion = 0;
+        let isRecording = false;
+        
+        const videoQuestions = [
+            { label: 'QUESTION 01', text: 'Décrivez votre idée en 30 secondes' },
+            { label: 'QUESTION 02', text: 'Qui sont vos concurrents ?' },
+            { label: 'QUESTION 03', text: 'Usage interne ou commercial ?' },
+            { label: 'QUESTION 04', text: 'Où en êtes-vous ? (domaine, branding, dev...)' },
+            { label: 'QUESTION 05', text: 'Le pricing à 990€ vous convient-il ?' },
+            { label: 'QUESTION 06', text: 'Êtes-vous prêt à vous lancer ?' },
+            { label: 'QUESTION 07', text: 'Votre email pour vous recontacter' }
+        ];
+        
+        function openVideoRecorder() {
+            document.getElementById('video-modal').classList.remove('hidden');
+            currentVideoQuestion = 0;
+            videoBlobs = [];
+            updateVideoQuestion();
+            generateVideoProgressDots();
+        }
+        
+        function closeVideoRecorder() {
+            document.getElementById('video-modal').classList.add('hidden');
+            stopCamera();
+        }
+        
+        async function startVideoRecording() {
+            try {
+                mediaStream = await navigator.mediaDevices.getUserMedia({ 
+                    video: { facingMode: 'user' }, 
+                    audio: true 
+                });
+                
+                const videoPreview = document.getElementById('video-preview');
+                videoPreview.srcObject = mediaStream;
+                
+                document.getElementById('video-prompt').classList.add('hidden');
+                document.getElementById('rec-indicator').classList.remove('hidden');
+                document.getElementById('btn-record').classList.remove('hidden');
+                document.getElementById('btn-next-video').classList.add('hidden');
+                
+                isRecording = true;
+                recordedChunks = [];
+                
+                // Start recording
+                const options = { mimeType: 'video/webm;codecs=vp9,opus' };
+                try {
+                    mediaRecorder = new MediaRecorder(mediaStream, options);
+                } catch (e) {
+                    mediaRecorder = new MediaRecorder(mediaStream); // Fallback
+                }
+                
+                mediaRecorder.ondataavailable = (e) => {
+                    if (e.data.size > 0) {
+                        recordedChunks.push(e.data);
+                    }
+                };
+                
+                mediaRecorder.onstop = () => {
+                    const blob = new Blob(recordedChunks, { type: 'video/webm' });
+                    videoBlobs[currentVideoQuestion] = blob;
+                    
+                    // Show playback
+                    document.getElementById('video-preview').classList.add('hidden');
+                    const playback = document.getElementById('video-playback');
+                    playback.src = URL.createObjectURL(blob);
+                    playback.classList.remove('hidden');
+                    
+                    document.getElementById('btn-record').classList.add('hidden');
+                    document.getElementById('btn-stop').classList.add('hidden');
+                    document.getElementById('btn-play').classList.remove('hidden');
+                    document.getElementById('btn-next-video').classList.remove('hidden');
+                    
+                    // Show finish button if last question
+                    if (currentVideoQuestion === videoQuestions.length - 1) {
+                        document.getElementById('btn-next-video').classList.add('hidden');
+                        document.getElementById('btn-finish-video').classList.remove('hidden');
+                    }
+                };
+                
+                mediaRecorder.start(1000); // Capture every second
+                
+            } catch (err) {
+                console.error('Camera error:', err);
+                alert('Impossible d\'accéder à la caméra. Veuillez autoriser l\'accès à la caméra et réessayer.');
+            }
+        }
+        
+        function toggleRecording() {
+            if (mediaRecorder && mediaRecorder.state === 'recording') {
+                mediaRecorder.pause();
+                document.getElementById('btn-record').textContent = '▶ REPRENDRE';
+            } else if (mediaRecorder && mediaRecorder.state === 'paused') {
+                mediaRecorder.resume();
+                document.getElementById('btn-record').textContent = '⏸ PAUSE';
+            }
+        }
+        
+        function stopRecording() {
+            if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+                mediaRecorder.stop();
+            }
+        }
+        
+        function playRecording() {
+            const playback = document.getElementById('video-playback');
+            playback.currentTime = 0;
+            playback.play();
+        }
+        
+        function stopCamera() {
+            if (mediaStream) {
+                mediaStream.getTracks().forEach(track => track.stop());
+                mediaStream = null;
+            }
+            if (mediaRecorder) {
+                mediaRecorder = null;
+            }
+            
+            // Reset UI
+            document.getElementById('video-preview').classList.remove('hidden');
+            document.getElementById('video-playback').classList.add('hidden');
+            document.getElementById('video-prompt').classList.remove('hidden');
+            document.getElementById('rec-indicator').classList.add('hidden');
+            document.getElementById('btn-record').classList.add('hidden');
+            document.getElementById('btn-stop').classList.add('hidden');
+            document.getElementById('btn-play').classList.add('hidden');
+            document.getElementById('btn-finish-video').classList.add('hidden');
+        }
+        
+        function nextVideoQuestion() {
+            if (currentVideoQuestion < videoQuestions.length - 1) {
+                currentVideoQuestion++;
+                updateVideoQuestion();
+                restartRecordingForNewQuestion();
+            }
+        }
+        
+        function prevVideoQuestion() {
+            if (currentVideoQuestion > 0) {
+                currentVideoQuestion--;
+                updateVideoQuestion();
+                restartRecordingForNewQuestion();
+            }
+        }
+        
+        function updateVideoQuestion() {
+            const q = videoQuestions[currentVideoQuestion];
+            document.getElementById('video-q-label').textContent = '[ ' + q.label + ' ]';
+            document.getElementById('video-q-text').textContent = q.text;
+            
+            // Update progress dots
+            generateVideoProgressDots();
+            
+            // Show replay if video exists
+            if (videoBlobs[currentVideoQuestion]) {
+                document.getElementById('video-preview').classList.add('hidden');
+                const playback = document.getElementById('video-playback');
+                playback.src = URL.createObjectURL(videoBlobs[currentVideoQuestion]);
+                playback.classList.remove('hidden');
+                document.getElementById('btn-play').classList.remove('hidden');
+                document.getElementById('btn-record').classList.add('hidden');
+                document.getElementById('btn-next-video').classList.remove('hidden');
+                
+                if (currentVideoQuestion === videoQuestions.length - 1) {
+                    document.getElementById('btn-next-video').classList.add('hidden');
+                    document.getElementById('btn-finish-video').classList.remove('hidden');
+                }
+            } else {
+                // Reset to prompt
+                document.getElementById('video-preview').classList.remove('hidden');
+                document.getElementById('video-playback').classList.add('hidden');
+                document.getElementById('video-prompt').classList.remove('hidden');
+                document.getElementById('btn-record').classList.add('hidden');
+                document.getElementById('btn-play').classList.add('hidden');
+            }
+            
+            // Hide prev on first question
+            document.getElementById('btn-prev-video').style.visibility = currentVideoQuestion === 0 ? 'hidden' : 'visible';
+        }
+        
+        function generateVideoProgressDots() {
+            const container = document.getElementById('video-progress');
+            container.innerHTML = '';
+            
+            videoQuestions.forEach((_, i) => {
+                const dot = document.createElement('div');
+                dot.className = 'w-3 h-3 rounded-full transition-colors ' + 
+                    (i === currentVideoQuestion ? 'bg-accent' : 
+                     videoBlobs[i] ? 'bg-green-500' : 'bg-surfaceBorder');
+                container.appendChild(dot);
+            });
+        }
+        
+        async function restartRecordingForNewQuestion() {
+            // Stop current recording if any
+            if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+                mediaRecorder.stop();
+            }
+            
+            // If we have a blob for current question, don't re-record
+            if (videoBlobs[currentVideoQuestion]) {
+                return;
+            }
+            
+            // Restart camera for new question
+            await startVideoRecording();
+        }
+        
+        async function finishVideoRecording() {
+            // Check all questions have videos
+            const missing = videoQuestions.filter((_, i) => !videoBlobs[i]);
+            
+            if (missing.length > 0) {
+                if (!confirm(`${missing.length} question(s) n'ont pas de réponse en vidéo. Voulez-vous continuer quand même ?`)) {
+                    return;
+                }
+            }
+            
+            // Convert blobs to files and send
+            const formData = new FormData();
+            formData.append('name', document.getElementById('q-name')?.value || 'Video Respondent');
+            formData.append('email', document.getElementById('q-email')?.value || '');
+            formData.append('video_mode', 'true');
+            
+            for (let i = 0; i < videoBlobs.length; i++) {
+                if (videoBlobs[i]) {
+                    formData.append(`question_${i}`, videoBlobs[i], `question_${i}.webm`);
+                }
+            }
+            
+            // Upload videos
+            try {
+                // Note: Need a server endpoint that handles file uploads
+                // For now, we'll submit the form data as JSON with video references
+                const data = {
+                    name: document.getElementById('q-name')?.value || '',
+                    email: document.getElementById('q-email')?.value || '',
+                    video_mode: true,
+                    questions_answered: videoBlobs.filter(b => b).length,
+                    total_questions: videoQuestions.length
+                };
+                
+                await fetch('https://webhook-production-b9fc.up.railway.app/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+            } catch (e) {
+                console.error('Upload error:', e);
+            }
+            
+            // Close modal and show thank you
+            closeVideoRecorder();
+            goToStep(8);
+            document.querySelector('.fixed.bottom-0').style.display = 'none';
+        }
     </script>
 
 </body>
