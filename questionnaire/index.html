@@ -491,16 +491,16 @@
     </script>
 
     <!-- VIDEO RECORDER MODAL -->
-    <div id="video-modal" class="fixed inset-0 z-[100] bg-black/95 hidden">
-        <div class="h-full flex flex-col">
+    <div id="video-modal" class="fixed inset-0 z-[100] bg-black/95 overflow-y-auto hidden">
+        <div class="min-h-full flex flex-col">
             <!-- Header -->
-            <div class="flex items-center justify-between p-4 border-b border-surfaceBorder">
+            <div class="flex items-center justify-between p-4 border-b border-surfaceBorder bg-black sticky top-0 z-10">
                 <div class="font-heading font-bold text-white text-lg">🎥 Réponses en vidéo</div>
                 <button onclick="closeVideoRecorder()" class="text-gray-400 hover:text-white text-2xl font-bold px-2">×</button>
             </div>
             
             <!-- Video area -->
-            <div class="flex-1 flex flex-col items-center justify-center p-4">
+            <div class="flex-1 flex flex-col items-center justify-start sm:justify-center p-4 pt-8">
                 <!-- Video preview -->
                 <div id="video-container" class="relative w-full max-w-lg aspect-video bg-surface border-2 border-surfaceBorder mb-4">
                     <video id="video-preview" autoplay muted playsinline class="w-full h-full object-cover"></video>
@@ -567,7 +567,7 @@
             </div>
             
             <!-- Back to text -->
-            <div class="p-4 border-t border-surfaceBorder text-center">
+            <div class="p-4 pb-20 border-t border-surfaceBorder text-center bg-black">
                 <button onclick="closeVideoRecorder()" class="font-mono text-xs text-gray-500 hover:text-accent uppercase">
                     ← Retour au questionnaire texte
                 </button>
