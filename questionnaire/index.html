@@ -603,7 +603,6 @@
                 document.getElementById('video-prompt').classList.add('hidden');
                 document.getElementById('rec-indicator').classList.remove('hidden');
                 document.getElementById('btn-record').classList.remove('hidden');
-                document.getElementById('btn-next-video').classList.add('hidden');
                 
                 isRecording = true;
                 recordedChunks = [];
@@ -733,12 +732,13 @@
                     document.getElementById('btn-finish-video').classList.remove('hidden');
                 }
             } else {
-                // Reset to prompt
+                // Reset to prompt - but keep next button visible
                 document.getElementById('video-preview').classList.remove('hidden');
                 document.getElementById('video-playback').classList.add('hidden');
                 document.getElementById('video-prompt').classList.remove('hidden');
                 document.getElementById('btn-record').classList.add('hidden');
                 document.getElementById('btn-play').classList.add('hidden');
+                document.getElementById('btn-next-video').classList.remove('hidden');
             }
             
             // Hide prev on first question
