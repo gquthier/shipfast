@@ -8,12 +8,15 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { 'sans': ['Inter', 'system-ui', 'sans-serif'] },
+                    fontFamily: {
+                        'sans': ['Outfit', 'system-ui', 'sans-serif'],
+                        'display': ['Space Grotesk', 'system-ui', 'sans-serif'],
+                    },
                     colors: {
                         brand: {
                             50: '#eef2ff',
@@ -35,14 +38,15 @@
     </script>
     <style>
         html { scroll-behavior: smooth; }
+        h1, h2, h3 { font-family: 'Space Grotesk', system-ui, sans-serif; }
         .gradient-text {
-            background: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7);
+            background: linear-gradient(135deg, #818cf8, #a78bfa, #c084fc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         .hero-gradient {
-            background: radial-gradient(ellipse at top, #eef2ff 0%, #ffffff 70%);
+            background: linear-gradient(180deg, #0f0b2e 0%, #1a1145 40%, #0f172a 100%);
         }
         .card-hover { transition: all 0.3s ease; }
         .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15); }
@@ -61,13 +65,23 @@
             background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%);
         }
         .cta-gradient {
-            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            background: linear-gradient(135deg, #818cf8, #a78bfa);
         }
         .cta-gradient:hover {
-            background: linear-gradient(135deg, #4338ca, #6d28d9);
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
         }
         .anti-vibe-gradient {
-            background: linear-gradient(135deg, #fef2f2 0%, #fff7ed 100%);
+            background: linear-gradient(135deg, #1e1b4b 0%, #1a1145 100%);
+        }
+        .dark-section {
+            background: linear-gradient(180deg, #0f0b2e, #1a1145);
+        }
+        .glow-border {
+            border: 1px solid rgba(129, 140, 248, 0.2);
+            box-shadow: 0 0 30px rgba(129, 140, 248, 0.05);
+        }
+        .neon-glow {
+            text-shadow: 0 0 20px rgba(167, 139, 250, 0.3);
         }
         .timeline-line {
             background: linear-gradient(to bottom, #c7d2fe, #6366f1, #c7d2fe);
@@ -79,7 +93,7 @@
     <!-- ============================================= -->
     <!-- HEADER NAV -->
     <!-- ============================================= -->
-    <header class="fixed top-0 w-full bg-white/80 backdrop-blur-lg border-b border-gray-100 z-50">
+    <header class="fixed top-0 w-full bg-[#0f0b2e]/80 backdrop-blur-lg border-b border-white/5 z-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <!-- Logo -->
@@ -87,11 +101,11 @@
                     <div class="w-8 h-8 rounded-lg cta-gradient flex items-center justify-center">
                         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                     </div>
-                    <span class="text-xl font-bold text-gray-900">Ship<span class="text-brand-600">Fast</span></span>
+                    <span class="text-xl font-bold text-white font-display">Ship<span class="text-brand-400">Fast</span></span>
                 </a>
 
                 <!-- Nav Links -->
-                <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
                     <a href="#features" class="hover:text-brand-600 transition">Avantages</a>
                     <a href="#process" class="hover:text-brand-600 transition">Process</a>
                     <a href="#pricing" class="hover:text-brand-600 transition">Tarif</a>
@@ -112,29 +126,35 @@
     <!-- ============================================= -->
     <!-- HERO SECTION -->
     <!-- ============================================= -->
-    <section class="hero-gradient pt-28 pb-8 sm:pt-36 sm:pb-12">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section class="hero-gradient pt-28 pb-8 sm:pt-36 sm:pb-12 relative overflow-hidden">
+        <!-- Animated background grid -->
+        <div class="absolute inset-0 opacity-[0.04]" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22><rect width=%2260%22 height=%2260%22 fill=%22none%22 stroke=%22%23818cf8%22 stroke-width=%220.5%22/></svg>');"></div>
+        <!-- Glow orbs -->
+        <div class="absolute top-20 left-1/4 w-96 h-96 bg-brand-600/20 rounded-full blur-[120px]"></div>
+        <div class="absolute top-40 right-1/4 w-72 h-72 bg-purple-600/15 rounded-full blur-[100px]"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <!-- Badge -->
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-sm font-medium mb-8">
-                <span class="flex h-2 w-2 rounded-full bg-brand-500 animate-pulse"></span>
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-brand-300 text-sm font-medium mb-8 backdrop-blur-sm">
+                <span class="flex h-2 w-2 rounded-full bg-brand-400 animate-pulse"></span>
                 1490€ tout compris · Livré en 48h
             </div>
 
             <!-- Headline -->
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight mb-6">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight mb-6 text-white neon-glow">
                 Votre MVP prêt au marché<br>
                 en <span class="gradient-text">48 heures</span><br>
                 pour 1490€
             </h1>
 
             <!-- Subheadline -->
-            <p class="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
-                On transforme votre idée en produit fonctionnel avec du <strong>vrai code pro</strong> — scalable, sécurisé, livré sur GitHub. Pas du vibe code jetable.
+            <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                On transforme votre idée en produit fonctionnel avec du <strong class="text-white">vrai code pro</strong> — scalable, sécurisé, livré sur GitHub. Pas du vibe code jetable.
             </p>
 
             <!-- VSL CTA -->
-            <a href="#vsl" class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-red-50 text-red-600 font-semibold hover:bg-red-100 transition-all group mb-4">
-                <span class="flex items-center justify-center w-10 h-10 rounded-full bg-red-500 text-white group-hover:scale-110 transition-transform">
+            <a href="#vsl" class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white font-semibold hover:bg-white/10 transition-all group mb-4 backdrop-blur-sm">
+                <span class="flex items-center justify-center w-10 h-10 rounded-full bg-brand-500 text-white group-hover:scale-110 transition-transform">
                     <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                 </span>
                 Regardez la vidéo
@@ -145,19 +165,34 @@
     <!-- ============================================= -->
     <!-- VSL VIDEO SECTION -->
     <!-- ============================================= -->
-    <section id="vsl" class="py-4 sm:py-8">
+    <section id="vsl" class="dark-section py-4 sm:py-8 relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Video Placeholder -->
-            <div class="vsl-placeholder rounded-2xl aspect-video flex items-center justify-center relative overflow-hidden shadow-2xl">
+            <div class="vsl-placeholder rounded-2xl aspect-video flex items-center justify-center relative overflow-hidden shadow-2xl border border-white/10">
                 <div class="absolute inset-0 opacity-10">
                     <div class="absolute top-0 left-0 w-full h-full" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22><rect width=%2240%22 height=%2240%22 fill=%22none%22 stroke=%22white%22 stroke-width=%220.5%22/></svg>');"></div>
                 </div>
                 <!-- Play Button -->
-                <button class="relative z-10 flex items-center justify-center w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm border-2 border-white/40 hover:bg-white/30 transition-all pulse-glow cursor-pointer">
+                <button class="relative z-10 flex items-center justify-center w-20 h-20 rounded-full bg-white/10 backdrop-blur-sm border-2 border-white/20 hover:bg-white/20 transition-all pulse-glow cursor-pointer">
                     <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                 </button>
                 <!-- Embed your VSL here: replace this div with an iframe/video -->
                 <!-- <iframe src="YOUR_VSL_URL" ...></iframe> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- CALENDLY — RIGHT AFTER VIDEO -->
+    <!-- ============================================= -->
+    <section class="dark-section py-12 sm:py-16 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3 neon-glow">Réservez votre call découverte</h2>
+                <p class="text-gray-400 max-w-lg mx-auto">15 minutes pour valider votre idée et lancer le process. Gratuit, sans engagement.</p>
+            </div>
+            <div class="rounded-2xl overflow-hidden glow-border bg-white/5 backdrop-blur-sm">
+                <div class="calendly-inline-widget" data-url="https://calendly.com/gauthierthiry/audit-seo-gratuit-lazyrank-clone?primary_color=818cf8&text_color=e2e8f0&background_color=1a1145" style="min-width:320px;height:700px;"></div>
             </div>
         </div>
     </section>
@@ -178,23 +213,23 @@
     <!-- ============================================= -->
     <section class="py-8 sm:py-12">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="anti-vibe-gradient rounded-2xl p-8 sm:p-10 border border-red-100">
+            <div class="rounded-2xl p-8 sm:p-10 glow-border bg-gradient-to-r from-brand-950/50 to-purple-950/50">
                 <div class="grid md:grid-cols-4 gap-6 text-center">
                     <div>
-                        <div class="text-3xl font-black text-gray-900">48h</div>
-                        <div class="text-sm text-gray-600 mt-1">Délai de livraison</div>
+                        <div class="text-3xl font-black text-white font-display">48h</div>
+                        <div class="text-sm text-brand-300 mt-1">Délai de livraison</div>
                     </div>
                     <div>
-                        <div class="text-3xl font-black text-gray-900">1490€</div>
-                        <div class="text-sm text-gray-600 mt-1">Prix fixe, tout compris</div>
+                        <div class="text-3xl font-black text-white font-display">1490€</div>
+                        <div class="text-sm text-brand-300 mt-1">Prix fixe, tout compris</div>
                     </div>
                     <div>
-                        <div class="text-3xl font-black text-gray-900">10x</div>
-                        <div class="text-sm text-gray-600 mt-1">Moins cher qu'une agence</div>
+                        <div class="text-3xl font-black text-white font-display">10x</div>
+                        <div class="text-sm text-brand-300 mt-1">Moins cher qu'une agence</div>
                     </div>
                     <div>
-                        <div class="text-3xl font-black text-gray-900">100%</div>
-                        <div class="text-sm text-gray-600 mt-1">Code pro, pas vibe code</div>
+                        <div class="text-3xl font-black text-white font-display">100%</div>
+                        <div class="text-sm text-brand-300 mt-1">Code pro, pas vibe code</div>
                     </div>
                 </div>
             </div>
@@ -597,26 +632,6 @@
     </section>
 
     <!-- ============================================= -->
-    <!-- CALENDLY BOOKING SECTION -->
-    <!-- ============================================= -->
-    <section id="booking" class="py-16 sm:py-24">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-10">
-                <div class="inline-flex items-center px-3 py-1 rounded-full bg-green-50 text-green-600 text-xs font-semibold uppercase tracking-wide mb-4">
-                    🗓️ Réservez votre call
-                </div>
-                <h2 class="text-3xl sm:text-4xl font-bold mb-3">Discutons de votre projet</h2>
-                <p class="text-gray-600 text-lg max-w-xl mx-auto">15 minutes pour comprendre votre idée, valider la faisabilité en 48h, et répondre à toutes vos questions. Gratuit, sans engagement.</p>
-            </div>
-
-            <div class="bg-white rounded-2xl border border-gray-200 shadow-lg overflow-hidden">
-                <!-- Calendly inline widget -->
-                <div class="calendly-inline-widget" data-url="https://calendly.com/gauthierthiry/audit-seo-gratuit-lazyrank-clone?primary_color=3789ff" style="min-width:320px;height:700px;"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================= -->
     <!-- FAQ -->
     <!-- ============================================= -->
     <section id="faq" class="py-16 sm:py-24">
@@ -704,17 +719,16 @@
     <!-- ============================================= -->
     <section class="py-16 sm:py-20">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="cta-gradient rounded-3xl p-8 sm:p-14 text-center text-white relative overflow-hidden">
-                <div class="absolute inset-0 opacity-10">
-                    <div class="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-white"></div>
-                    <div class="absolute -bottom-20 -left-20 w-48 h-48 rounded-full bg-white"></div>
-                </div>
+            <div class="rounded-3xl p-8 sm:p-14 text-center text-white relative overflow-hidden" style="background: linear-gradient(135deg, #0f0b2e, #1e1b4b, #312e81);">
+                <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22><rect width=%2260%22 height=%2260%22 fill=%22none%22 stroke=%22%23818cf8%22 stroke-width=%220.5%22/></svg>');"></div>
+                <div class="absolute top-0 left-1/3 w-64 h-64 bg-brand-500/20 rounded-full blur-[80px]"></div>
+                <div class="absolute bottom-0 right-1/3 w-48 h-48 bg-purple-500/15 rounded-full blur-[60px]"></div>
                 <div class="relative z-10">
-                    <h2 class="text-3xl sm:text-4xl font-bold mb-4">Lancez votre MVP aujourd'hui</h2>
-                    <p class="text-lg text-brand-100 mb-8 max-w-xl mx-auto">
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-4 neon-glow">Lancez votre MVP aujourd'hui</h2>
+                    <p class="text-lg text-gray-400 mb-8 max-w-xl mx-auto">
                         1490€. 48 heures. Code pro. Pas de vibe code.<br>Arrêtez de planifier, commencez à shipper.
                     </p>
-                    <a href="#booking" class="inline-flex items-center px-8 py-4 text-base font-bold text-brand-700 bg-white rounded-full hover:bg-brand-50 hover:shadow-xl transition-all">
+                    <a href="#booking" class="inline-flex items-center px-8 py-4 text-base font-bold text-brand-950 bg-gradient-to-r from-brand-300 to-purple-300 rounded-full hover:from-brand-200 hover:to-purple-200 hover:shadow-xl hover:shadow-brand-500/20 transition-all">
                         Lancer mon MVP →
                     </a>
                 </div>
@@ -725,21 +739,21 @@
     <!-- ============================================= -->
     <!-- FOOTER -->
     <!-- ============================================= -->
-    <footer class="border-t border-gray-100 py-12">
+    <footer class="border-t border-white/5 py-12" style="background: #0a0820;">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
                 <div class="flex items-center gap-2">
                     <div class="w-7 h-7 rounded-lg cta-gradient flex items-center justify-center">
                         <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                     </div>
-                    <span class="text-lg font-bold">Ship<span class="text-brand-600">Fast</span></span>
+                    <span class="text-lg font-bold font-display text-white">Ship<span class="text-brand-400">Fast</span></span>
                 </div>
                 <div class="flex items-center gap-6 text-sm text-gray-500">
-                    <a href="#" class="hover:text-gray-700">CGV</a>
-                    <a href="#" class="hover:text-gray-700">Mentions légales</a>
-                    <a href="#" class="hover:text-gray-700">Contact</a>
+                    <a href="#" class="hover:text-gray-300">CGV</a>
+                    <a href="#" class="hover:text-gray-300">Mentions légales</a>
+                    <a href="#" class="hover:text-gray-300">Contact</a>
                 </div>
-                <p class="text-sm text-gray-400">© 2026 ShipFast. Tous droits réservés.</p>
+                <p class="text-sm text-gray-600">© 2026 ShipFast. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
