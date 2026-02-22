@@ -25,29 +25,59 @@
     <!-- Cal.com -->
     <script type="text/javascript">
     (function (C, A, L) {
-        let p = function (a, ar) { a.q.push(ar); };
-        let d = C.document;
-        C.Cal = C.Cal function () {
-            let cal = C.Cal;
-            let ar = arguments;
-            if (!cal.loaded) {
-                cal.ns = {};
-                cal.q = cal.q [];
-                d.head.appendChild(d.createElement("script")).src = A;
-                cal.loaded = true;
-            }
-            if (ar[0] === L) {
-                const api = function () { p(api, arguments); };
-                const namespace = ar[1];
-                api.q = api.q [];
-                if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar);
-                return;}
-            p(cal, ar); };
-        })(window, "https://app.cal.com/embed/embed.js", "init");
+      const p = function (a, ar) { a.q.push(ar); };
+      const d = C.document;
+      C.Cal = C.Cal || function () {
+        const cal = C.Cal;
+        const ar = arguments;
+        if (!cal.loaded) {
+          cal.ns = {};
+          cal.q = cal.q || [];
+          d.head.appendChild(d.createElement("script")).src = A;
+          cal.loaded = true;
+        }
+        if (ar[0] === L) {
+          const api = function () { p(api, arguments); };
+          const namespace = ar[1];
+          api.q = api.q || [];
+          if (typeof namespace === "string") {
+            cal.ns[namespace] = cal.ns[namespace] || api;
+            p(cal.ns[namespace], ar);
+            p(cal, ["initNamespace", namespace]);
+          } else {
+            p(cal, ar);
+          }
+          return;
+        }
+        p(cal, ar);
+      };
+    })(window, "https://app.cal.com/embed/embed.js", "init");
+
+    Cal("init", "quickship1", { origin: "https://app.cal.com" });
+    Cal.ns.quickship1("inline", {
+      elementOrSelector: "#cal-inline-1",
+      calLink: "dutygroup/appel-quickship-990-mvp-en-48h",
+      config: { layout: "month_view", useSlotsViewOnSmallScreen: true }
+    });
+    Cal.ns.quickship1("ui", {
+      hideEventTypeDetails: false,
+      layout: "month_view"
+    });
+
+    Cal("init", "quickship2", { origin: "https://app.cal.com" });
+    Cal.ns.quickship2("inline", {
+      elementOrSelector: "#cal-inline-2",
+      calLink: "dutygroup/appel-quickship-990-mvp-en-48h",
+      config: { layout: "month_view", useSlotsViewOnSmallScreen: true }
+    });
+    Cal.ns.quickship2("ui", {
+      hideEventTypeDetails: false,
+      layout: "month_view"
+    });
     </script>
     <style>
-        .cal-com-inline { background: #121212; border: 1px solid #262626; }
-        .cal-com-inline iframe { border-radius: 0; }
+        .cal-com-inline { background: #121212; border: 1px solid #262626; min-height: 600px; }
+        .cal-com-inline iframe { border-radius: 0; min-height: 600px; }
     </style>
 
     <script>
@@ -276,16 +306,8 @@
                         </p>
                     </div>
                     <div class="lg:col-span-3 gs-reveal">
-                        <div class="cal-com-inline" style="width:100%;height:650px;overflow:scroll" id="my-cal-inline-appel-quickship-990-mvp-en-48h-1"></div>
-                        <script type="text/javascript">
-                        (function(){
-                            if(window.Cal){
-                                Cal("init", "appel-quickship-990-mvp-en-48h", {origin:"https://app.cal.com"});
-                                Cal.ns["appel-quickship-990-mvp-en-48h"]("inline", { elementOrSelector:"#my-cal-inline-appel-quickship-990-mvp-en-48h-1", config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"}, calLink: "dutygroup/appel-quickship-990-mvp-en-48h"});
-                                Cal.ns["appel-quickship-990-mvp-en-48h"]("ui", {"hideEventTypeDetails":false,"layout":"month_view","backgroundColor":"121212","textColor":"e5e5e5","primaryColor":"ccff00"});
-                            }
-                        })();
-                        </script>
+                        <div class="cal-com-inline" style="width:100%;height:650px;overflow:hidden" id="cal-inline-1"></div>
+                        <p class="font-mono text-[11px] text-gray-500 mt-2">Si le calendrier ne s’affiche pas, ouvre directement : <a class="text-accent underline" href="https://cal.com/dutygroup/appel-quickship-990-mvp-en-48h" target="_blank" rel="noopener">cal.com/dutygroup/appel-quickship-990-mvp-en-48h</a></p>
                     </div>
                 </div>
             </div>
@@ -491,16 +513,8 @@
                         </p>
                     </div>
                     <div class="lg:col-span-3 gs-reveal">
-                        <div class="cal-com-inline" style="width:100%;height:650px;overflow:scroll" id="my-cal-inline-appel-quickship-990-mvp-en-48h-2"></div>
-                        <script type="text/javascript">
-                        (function(){
-                            if(window.Cal){
-                                Cal("init", "appel-quickship-990-mvp-en-48h", {origin:"https://app.cal.com"});
-                                Cal.ns["appel-quickship-990-mvp-en-48h"]("inline", { elementOrSelector:"#my-cal-inline-appel-quickship-990-mvp-en-48h-2", config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"}, calLink: "dutygroup/appel-quickship-990-mvp-en-48h"});
-                                Cal.ns["appel-quickship-990-mvp-en-48h"]("ui", {"hideEventTypeDetails":false,"layout":"month_view","backgroundColor":"121212","textColor":"e5e5e5","primaryColor":"ccff00"});
-                            }
-                        })();
-                        </script>
+                        <div class="cal-com-inline" style="width:100%;height:650px;overflow:hidden" id="cal-inline-2"></div>
+                        <p class="font-mono text-[11px] text-gray-500 mt-2">Si le calendrier ne s’affiche pas, ouvre directement : <a class="text-accent underline" href="https://cal.com/dutygroup/appel-quickship-990-mvp-en-48h" target="_blank" rel="noopener">cal.com/dutygroup/appel-quickship-990-mvp-en-48h</a></p>
                     </div>
                 </div>
             </div>
