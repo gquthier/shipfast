@@ -76,8 +76,24 @@
     });
     </script>
     <style>
-        .cal-com-inline { background: #121212; border: 1px solid #262626; min-height: 600px; }
-        .cal-com-inline iframe { border-radius: 0; min-height: 600px; }
+        .cal-com-inline {
+            background: #121212;
+            border: 1px solid #262626;
+            min-height: 780px;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+            touch-action: pan-y;
+        }
+        .cal-com-inline iframe {
+            border-radius: 0;
+            min-height: 780px;
+        }
+        @media (max-width: 768px) {
+            .cal-com-inline,
+            .cal-com-inline iframe {
+                min-height: 920px;
+            }
+        }
     </style>
 
     <script>
@@ -306,7 +322,7 @@
                         </p>
                     </div>
                     <div class="lg:col-span-3 gs-reveal">
-                        <div class="cal-com-inline" style="width:100%;height:650px;overflow:hidden" id="cal-inline-1"></div>
+                        <div class="cal-com-inline" style="width:100%;height:780px;overflow:auto" id="cal-inline-1"></div>
                         <p class="font-mono text-[11px] text-gray-500 mt-2">Si le calendrier ne s’affiche pas, ouvre directement : <a class="text-accent underline" href="https://cal.com/dutygroup/appel-quickship-990-mvp-en-48h" target="_blank" rel="noopener">cal.com/dutygroup/appel-quickship-990-mvp-en-48h</a></p>
                     </div>
                 </div>
@@ -513,7 +529,7 @@
                         </p>
                     </div>
                     <div class="lg:col-span-3 gs-reveal">
-                        <div class="cal-com-inline" style="width:100%;height:650px;overflow:hidden" id="cal-inline-2"></div>
+                        <div class="cal-com-inline" style="width:100%;height:780px;overflow:auto" id="cal-inline-2"></div>
                         <p class="font-mono text-[11px] text-gray-500 mt-2">Si le calendrier ne s’affiche pas, ouvre directement : <a class="text-accent underline" href="https://cal.com/dutygroup/appel-quickship-990-mvp-en-48h" target="_blank" rel="noopener">cal.com/dutygroup/appel-quickship-990-mvp-en-48h</a></p>
                     </div>
                 </div>
