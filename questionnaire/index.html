@@ -359,6 +359,14 @@
         // Webhook URL (Railway)
         const WEBHOOK_URL = 'https://webhook-production-b9fc.up.railway.app/submit';
 
+        function stopLoomVideo() {
+            // Stop Loom iframe video by replacing with empty
+            const loomFrame = document.querySelector('[data-step="0"] iframe');
+            if (loomFrame) {
+                loomFrame.src = 'about:blank';
+            }
+        }
+
         function updateProgress() {
             const pct = Math.round((currentStep / totalSteps) * 100);
             document.getElementById('progress-bar').style.width = pct + '%';
@@ -384,6 +392,11 @@
         }
 
         function nextStep() {
+            // Stop Loom video when leaving step 0
+            if (currentStep === 0) {
+                stopLoomVideo();
+            }
+            
             // Save textarea answers for current step
             if (currentStep === 1) {
                 const v = document.getElementById('q-idea').value.trim();
