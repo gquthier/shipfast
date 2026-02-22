@@ -725,27 +725,16 @@
                 onEnter: () => setTimeout(typeTerminal, 500)
             });
 
-            // 5. Effet Magnétique sur les boutons (Prouesse JS)
+            // 5. Shake on hover pour les boutons CTA
             const magneticBtns = document.querySelectorAll('.magnetic-btn');
 
             magneticBtns.forEach(btn => {
-                const text = btn.querySelector('.magnetic-text');
-
-                btn.addEventListener('mousemove', e => {
-                    const position = btn.getBoundingClientRect();
-                    const x = e.pageX - position.left - position.width / 2;
-                    const y = e.pageY - position.top - position.height / 2;
-
-                    // Déplacement du bouton (léger)
-                    gsap.to(btn, { x: x * 0.1, y: y * 0.1, duration: 0.5, ease: "power2.out" });
-                    // Déplacement du texte (un peu plus fort pour l'effet de parallaxe)
-                    gsap.to(text, { x: x * 0.2, y: y * 0.2, duration: 0.5, ease: "power2.out" });
-                });
-
-                btn.addEventListener('mouseleave', () => {
-                    // Reset au centre
-                    gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: "elastic.out(1, 0.3)" });
-                    gsap.to(text, { x: 0, y: 0, duration: 0.5, ease: "elastic.out(1, 0.3)" });
+                btn.addEventListener('mouseenter', () => {
+                    gsap.fromTo(btn, 
+                        { x: 0 },
+                        { x: 3, duration: 0.06, repeat: 5, yoyo: true, ease: "power2.inOut",
+                          onComplete: () => gsap.set(btn, { x: 0 }) }
+                    );
                 });
             });
 
