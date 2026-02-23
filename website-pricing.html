@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr" class="bg-black scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réalisations QuickShip — Portfolio & Tarifs</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,700,500,600,1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'heading': ['Clash Display', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        black: '#050505',
+                        surface: '#121212',
+                        surfaceBorder: '#262626',
+                        accent: '#CCFF00',
+                        accentHover: '#b3e600'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+        }
+        .brutal-border {
+            border: 1px solid #262626;
+            background: rgba(18, 18, 18, 0.6);
+            backdrop-filter: blur(12px);
+        }
+        .text-outline {
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+        }
+        .gallery-item:hover .gallery-img { transform: scale(1.05); }
+        .gallery-overlay {
+            background: linear-gradient(to top, rgba(5, 5, 5, 0.9), transparent);
+        }
+        .glow-effect {
+            position: absolute;
+            background: #CCFF00;
+            filter: blur(80px);
+            opacity: 0.15;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-black text-[#E5E5E5] font-sans antialiased overflow-x-hidden">
+    <div class="fixed inset-0 bg-grid z-0 pointer-events-none"></div>
+
+    <header class="fixed top-0 w-full brutal-border border-t-0 border-l-0 border-r-0 z-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+                <a href="/" class="font-heading font-bold text-2xl tracking-tight text-white uppercase">
+                    QUICK<span class="text-accent">SHIP.</span>
+                </a>
+                <nav class="hidden md:flex items-center gap-8 text-sm font-mono font-medium text-gray-400">
+                    <a href="/#pricing" class="hover:text-accent transition-colors">/TARIF</a>
+                    <a href="#portfolio" class="hover:text-accent transition-colors">/RÉALISATIONS</a>
+                    <a href="/#booking" class="hover:text-accent transition-colors">/RÉSERVER</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative z-10">
+        <!-- Hero Section -->
+        <section class="pt-40 pb-20 text-center">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="inline-flex items-center gap-3 px-4 py-2 border border-surfaceBorder bg-surface/50 text-accent font-mono text-xs font-bold uppercase tracking-widest mb-10">
+                    <span class="flex h-2 w-2 bg-accent"></span>
+                    Showcase & Expertise
+                </div>
+                <h1 class="font-heading uppercase text-5xl md:text-8xl font-semibold leading-[0.9] tracking-tight mb-8 text-white">
+                    NOS <span class="text-outline">RÉALISATIONS</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto font-sans font-medium">
+                    Des sites web qui ne sont pas juste "beaux", mais qui sont des machines à prospects. <span class="text-white border-b border-accent">Livrés en 48h.</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- Portfolio Gallery -->
+        <section id="portfolio" class="py-20">
+            <div class="max-w-7xl mx-auto px-6">
+                <!-- Grid: 3 columns -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- LazyRank -->
+                    <a href="https://lazyrank.io" target="_blank" class="group relative block bg-surface border border-surfaceBorder overflow-hidden">
+                        <div class="aspect-video w-full overflow-hidden bg-black">
+                            <img src="https://render.screenshotmachine.com/render?key=6184a1&url=https://lazyrank.io&dimension=1024x768&format=jpg&delay=2000" class="gallery-img w-full h-full object-cover transition-transform duration-700" alt="LazyRank">
+                        </div>
+                        <div class="gallery-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-black bg-accent px-4 py-2 font-mono font-bold text-xs uppercase">Visiter le site</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="text-accent font-mono text-[10px] uppercase font-bold mb-2">/ SaaS / SEO / AI</div>
+                            <h3 class="text-xl font-heading font-bold text-white uppercase">LazyRank</h3>
+                        </div>
+                    </a>
+
+                    <!-- RestoRank -->
+                    <a href="https://restorank-landing.vercel.app" target="_blank" class="group relative block bg-surface border border-surfaceBorder overflow-hidden">
+                        <div class="aspect-video w-full overflow-hidden bg-black">
+                            <img src="https://render.screenshotmachine.com/render?key=6184a1&url=https://restorank-landing.vercel.app&dimension=1024x768&format=jpg&delay=2000" class="gallery-img w-full h-full object-cover transition-transform duration-700" alt="RestoRank">
+                        </div>
+                        <div class="gallery-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-black bg-accent px-4 py-2 font-mono font-bold text-xs uppercase">Visiter le site</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="text-accent font-mono text-[10px] uppercase font-bold mb-2">/ Local / B2B</div>
+                            <h3 class="text-xl font-heading font-bold text-white uppercase">RestoRank</h3>
+                        </div>
+                    </a>
+
+                    <!-- ShipFast -->
+                    <a href="https://shipfast-eta.vercel.app/" target="_blank" class="group relative block bg-surface border border-surfaceBorder overflow-hidden">
+                        <div class="aspect-video w-full overflow-hidden bg-black">
+                            <img src="https://render.screenshotmachine.com/render?key=6184a1&url=https://shipfast-eta.vercel.app/&dimension=1024x768&format=jpg&delay=2000" class="gallery-img w-full h-full object-cover transition-transform duration-700" alt="ShipFast">
+                        </div>
+                        <div class="gallery-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-black bg-accent px-4 py-2 font-mono font-bold text-xs uppercase">Visiter le site</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="text-accent font-mono text-[10px] uppercase font-bold mb-2">/ Dev / MVP</div>
+                            <h3 class="text-xl font-heading font-bold text-white uppercase">ShipFast</h3>
+                        </div>
+                    </a>
+
+                    <!-- Chapters -->
+                    <a href="https://chapters-website.vercel.app" target="_blank" class="group relative block bg-surface border border-surfaceBorder overflow-hidden">
+                        <div class="aspect-video w-full overflow-hidden bg-black">
+                            <img src="https://render.screenshotmachine.com/render?key=6184a1&url=https://chapters-website.vercel.app&dimension=1024x768&format=jpg&delay=2000" class="gallery-img w-full h-full object-cover transition-transform duration-700" alt="Chapters">
+                        </div>
+                        <div class="gallery-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-black bg-accent px-4 py-2 font-mono font-bold text-xs uppercase">Visiter le site</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="text-accent font-mono text-[10px] uppercase font-bold mb-2">/ App / Mobile / AI</div>
+                            <h3 class="text-xl font-heading font-bold text-white uppercase">Chapters</h3>
+                        </div>
+                    </a>
+
+                    <!-- AzeoAI -->
+                    <a href="https://azeoai.vercel.app" target="_blank" class="group relative block bg-surface border border-surfaceBorder overflow-hidden">
+                        <div class="aspect-video w-full overflow-hidden bg-black">
+                            <img src="https://render.screenshotmachine.com/render?key=6184a1&url=https://azeoai.vercel.app&dimension=1024x768&format=jpg&delay=2000" class="gallery-img w-full h-full object-cover transition-transform duration-700" alt="AzeoAI">
+                        </div>
+                        <div class="gallery-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-black bg-accent px-4 py-2 font-mono font-bold text-xs uppercase">Visiter le site</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="text-accent font-mono text-[10px] uppercase font-bold mb-2">/ Agency / Automation</div>
+                            <h3 class="text-xl font-heading font-bold text-white uppercase">AzeoAI</h3>
+                        </div>
+                    </a>
+
+                    <!-- BreathTrailer -->
+                    <a href="https://breathtrailer.vercel.app" target="_blank" class="group relative block bg-surface border border-surfaceBorder overflow-hidden">
+                        <div class="aspect-video w-full overflow-hidden bg-black">
+                            <img src="https://render.screenshotmachine.com/render?key=6184a1&url=https://breathtrailer.vercel.app&dimension=1024x768&format=jpg&delay=2000" class="gallery-img w-full h-full object-cover transition-transform duration-700" alt="BreathTrailer">
+                        </div>
+                        <div class="gallery-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-black bg-accent px-4 py-2 font-mono font-bold text-xs uppercase">Visiter le site</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="text-accent font-mono text-[10px] uppercase font-bold mb-2">/ Video / Production</div>
+                            <h3 class="text-xl font-heading font-bold text-white uppercase">BreathTrailer</h3>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="py-32 bg-surface border-y border-surfaceBorder">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-20">
+                    <div class="inline-block font-mono text-accent text-xs font-bold uppercase tracking-widest mb-4">
+                        [ TRANSPARENCE TOTALE ]
+                    </div>
+                    <h2 class="font-heading uppercase text-4xl md:text-6xl font-semibold text-white">
+                        DES OFFRES <span class="text-outline">CARRÉES.</span>
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- LP -->
+                    <div class="bg-black border border-surfaceBorder p-10 flex flex-col">
+                        <div class="font-mono text-gray-500 text-xs uppercase mb-4">/ Landing Page</div>
+                        <div class="text-4xl font-heading font-bold text-white mb-6">490€ <span class="text-accent text-lg">TTC</span></div>
+                        <ul class="space-y-4 mb-10 flex-1 font-mono text-xs uppercase text-gray-400">
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-accent"></span> 1 Page Focus Conversion</li>
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-accent"></span> Design Psychologique</li>
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-accent"></span> Hébergement 1 An Inclus</li>
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-accent"></span> Livraison 48h</li>
+                        </ul>
+                        <a href="/#booking" class="bg-white text-black text-center py-4 font-heading font-bold uppercase hover:bg-accent transition-colors">Réserver</a>
+                    </div>
+
+                    <!-- Web Pro -->
+                    <div class="bg-black border border-accent p-10 flex flex-col relative">
+                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-black px-4 py-1 font-mono font-bold text-[10px] uppercase">Plus Populaire</div>
+                        <div class="font-mono text-gray-400 text-xs uppercase mb-4">/ Site Web Pro</div>
+                        <div class="text-4xl font-heading font-bold text-white mb-6">790€ <span class="text-accent text-lg">TTC</span></div>
+                        <ul class="space-y-4 mb-10 flex-1 font-mono text-xs uppercase text-white">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-accent"></span> Jusqu'à 3 Pages</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-accent"></span> Structure SEO Google</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-accent"></span> Capture de Leads</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-accent"></span> Prise de RDV Intégrée</li>
+                        </ul>
+                        <a href="/#booking" class="bg-accent text-black text-center py-4 font-heading font-bold uppercase hover:bg-white transition-colors">Démarrer</a>
+                    </div>
+
+                    <!-- Custom -->
+                    <div class="bg-black border border-surfaceBorder p-10 flex flex-col">
+                        <div class="font-mono text-gray-500 text-xs uppercase mb-4">/ Custom Suite</div>
+                        <div class="text-4xl font-heading font-bold text-white mb-6">1290€ <span class="text-accent text-lg">TTC</span></div>
+                        <ul class="space-y-4 mb-10 flex-1 font-mono text-xs uppercase text-gray-400">
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-accent"></span> Jusqu'à 10 Pages</li>
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-accent"></span> Multi-langues</li>
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-accent"></span> Intégration CRM</li>
+                            <li class="flex items-center gap-2"><span class="w-1 h-1 bg-accent"></span> Support 24/7</li>
+                        </ul>
+                        <a href="/#booking" class="bg-white text-black text-center py-4 font-heading font-bold uppercase hover:bg-accent transition-colors">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guarantee -->
+        <section class="py-24 text-center">
+            <div class="max-w-4xl mx-auto px-6">
+                <h3 class="font-heading text-2xl md:text-4xl uppercase text-white mb-6">Garantie "Satisfait ou Remboursé"</h3>
+                <p class="text-gray-400 font-sans leading-relaxed">
+                    Livraison en 48 heures chronos. Si le résultat ne correspond pas à vos objectifs après deux révisions, nous vous remboursons intégralement. Pas de questions, pas de drama.
+                </p>
+                <div class="flex justify-center gap-12 mt-12 font-mono">
+                    <div>
+                        <span class="block text-accent text-3xl font-bold">48h</span>
+                        <span class="text-[10px] text-gray-500 uppercase">Délai</span>
+                    </div>
+                    <div>
+                        <span class="block text-accent text-3xl font-bold">+40</span>
+                        <span class="text-[10px] text-gray-500 uppercase">Projets</span>
+                    </div>
+                    <div>
+                        <span class="block text-accent text-3xl font-bold">100%</span>
+                        <span class="text-[10px] text-gray-500 uppercase">Satisfaction</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-surfaceBorder py-8 bg-black relative z-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono uppercase text-gray-600">
+            <span class="text-white">QuickShip.</span>
+            <span>© 2025 Vrai Code, Pas de Bullshit.</span>
+        </div>
+    </footer>
+</body>
+</html>
