@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>QuickShip — Website Pricing & Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --surface: #0a0a0a;
+            --border: #1a1a1a;
+            --text: #ffffff;
+            --muted: #a1a1aa;
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.15);
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            background: var(--bg);
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 1300px; margin: 0 auto; padding: 80px 24px; }
+        
+        header { text-align: center; margin-bottom: 100px; }
+        h1 { font-size: 56px; font-weight: 800; margin: 0 0 20px; letter-spacing: -0.03em; }
+        .badge {
+            display: inline-block;
+            background: var(--accent-glow);
+            color: var(--accent);
+            padding: 6px 14px;
+            border-radius: 99px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 24px;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        header p { font-size: 20px; color: var(--muted); max-width: 700px; margin: 0 auto; }
+
+        .section-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: flex-end; 
+            margin-bottom: 40px;
+        }
+        .section-header h2 { font-size: 28px; font-weight: 800; margin: 0; }
+        .section-header p { color: var(--muted); margin: 8px 0 0; }
+        
+        .gallery-container {
+            position: relative;
+            margin-bottom: 120px;
+            padding: 10px 0;
+        }
+        .gallery {
+            display: grid;
+            grid-template-rows: repeat(2, 1fr);
+            grid-auto-flow: column;
+            grid-auto-columns: minmax(400px, 1fr);
+            gap: 24px;
+            overflow-x: auto;
+            padding-bottom: 30px;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border) transparent;
+        }
+        .gallery::-webkit-scrollbar { height: 6px; }
+        .gallery::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+        
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            color: inherit;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 20px rgba(59, 130, 246, 0.1);
+        }
+        .card-img-container {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #111;
+            position: relative;
+            overflow: hidden;
+        }
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .card:hover .card-img { transform: scale(1.05); }
+        .card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 50%);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .card:hover .card-overlay { opacity: 1; }
+        .view-link {
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .card-info { padding: 24px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+        .card-tag { font-size: 11px; font-weight: 700; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.05em; }
+        .card-title { font-size: 20px; font-weight: 700; margin: 0; }
+        .card-desc { font-size: 14px; color: var(--muted); margin-top: 8px; font-weight: 400; }
+
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 20px;
+        }
+        .price-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 48px;
+            border-radius: 24px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.3s ease;
+        }
+        .price-card:hover { border-color: #333; }
+        .price-card.featured {
+            border-color: var(--accent);
+            background: linear-gradient(180deg, rgba(59, 130, 246, 0.05) 0%, rgba(10, 10, 10, 1) 100%);
+            transform: scale(1.02);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+        }
+        .featured-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: white;
+            padding: 6px 16px;
+            font-size: 12px;
+            font-weight: 800;
+            border-radius: 99px;
+            letter-spacing: 0.05em;
+        }
+        .plan-name { font-size: 14px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
+        .plan-price { font-size: 48px; font-weight: 800; margin-bottom: 24px; display: flex; align-items: baseline; gap: 4px; }
+        .plan-price span { font-size: 18px; color: var(--muted); font-weight: 400; }
+        .plan-desc { color: var(--muted); font-size: 15px; margin-bottom: 32px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+        .features { list-style: none; padding: 0; margin: 0 0 48px; flex: 1; }
+        .features li {
+            margin-bottom: 16px;
+            font-size: 15px;
+            display: flex;
+            gap: 12px;
+            color: #d1d1d6;
+        }
+        .features li::before {
+            content: "→";
+            color: var(--accent);
+            font-weight: 800;
+        }
+        .btn {
+            background: var(--text);
+            color: var(--bg);
+            text-align: center;
+            padding: 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 800;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+        .btn.primary { background: var(--accent); color: white; box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2); }
+        .btn:hover { transform: scale(1.02); opacity: 0.95; }
+
+        .guarantee {
+            margin-top: 100px;
+            text-align: center;
+            padding: 60px;
+            border-radius: 32px;
+            border: 1px dashed var(--border);
+            background: rgba(255,255,255,0.01);
+        }
+        .guarantee h3 { font-size: 24px; margin: 0 0 12px; }
+        .guarantee p { color: var(--muted); max-width: 600px; margin: 0 auto; line-height: 1.6; }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 40px;
+        }
+        .stat-item { text-align: center; }
+        .stat-val { font-size: 32px; font-weight: 800; display: block; }
+        .stat-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+
+        @media (max-width: 1100px) {
+            .pricing-grid { grid-template-columns: 1fr; }
+            .price-card.featured { transform: none; margin: 20px 0; }
+            .gallery { grid-auto-columns: minmax(300px, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="badge">Machine à Cash B2B</div>
+            <h1>Scale ton Business Web</h1>
+            <p>On ne construit pas des sites "jolis". On build des infrastructures de vente ultra-performantes pour les PME qui veulent dominer leur marché.</p>
+        </header>
+
+        <div class="section-header">
+            <div>
+                <h2>Social Proof & Réalisations</h2>
+                <p>+40 projets livrés avec succès. Performance atomique.</p>
+            </div>
+        </div>
+
+        <div class="gallery-container">
+            <div class="gallery">
+                <!-- Row 1 -->
+                <a href="https://lazyrank.io" target="_blank" class="card">
+                    <div class="card-img-container">
+                        <img src="https://api.screenshotmachine.com/?key=685d56&url=https://lazyrank.io&dimension=1024x768" class="card-img" alt="LazyRank">
+                        <div class="card-overlay"><div class="view-link">Voir le site live →</div></div>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-tag">SaaS / AI / SEO</div>
+                        <h4 class="card-title">LazyRank</h4>
+                        <div class="card-desc">Système automatisé de référencement GEO.</div>
+                    </div>
+                </a>
+                <a href="https://restorank-landing.vercel.app" target="_blank" class="card">
+                    <div class="card-img-container">
+                        <img src="https://api.screenshotmachine.com/?key=685d56&url=https://restorank-landing.vercel.app&dimension=1024x768" class="card-img" alt="RestoRank">
+                        <div class="card-overlay"><div class="view-link">Voir le site live →</div></div>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-tag">B2B / Google Business</div>
+                        <h4 class="card-title">RestoRank</h4>
+                        <div class="card-desc">Optimisation GMB pour restaurateurs.</div>
+                    </div>
+                </a>
+                <a href="https://shipfast-eta.vercel.app/" target="_blank" class="card">
+                    <div class="card-img-container">
+                        <img src="https://api.screenshotmachine.com/?key=685d56&url=https://shipfast-eta.vercel.app/&dimension=1024x768" class="card-img" alt="ShipFast">
+                        <div class="card-overlay"><div class="view-link">Voir le site live →</div></div>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-tag">Dev / MVP / Boilerplate</div>
+                        <h4 class="card-title">ShipFast</h4>
+                        <div class="card-desc">La référence pour lancer un SaaS en 24h.</div>
+                    </div>
+                </a>
+                <a href="https://chapters-website.vercel.app" target="_blank" class="card">
+                    <div class="card-img-container">
+                        <img src="https://api.screenshotmachine.com/?key=685d56&url=https://chapters-website.vercel.app&dimension=1024x768" class="card-img" alt="Chapters">
+                        <div class="card-overlay"><div class="view-link">Voir le site live →</div></div>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-tag">App / Gen-Z / AI</div>
+                        <h4 class="card-title">Chapters</h4>
+                        <div class="card-desc">Landing page interactive pour App mobile.</div>
+                    </div>
+                </a>
+
+                <!-- Row 2 -->
+                <a href="https://hustla-landing-hustla-ai.vercel.app" target="_blank" class="card">
+                    <div class="card-img-container">
+                        <img src="https://api.screenshotmachine.com/?key=685d56&url=https://hustla-landing-hustla-ai.vercel.app&dimension=1024x768" class="card-img" alt="Hustla AI">
+                        <div class="card-overlay"><div class="view-link">Voir le site live →</div></div>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-tag">AI / Content Creator</div>
+                        <h4 class="card-title">Hustla AI</h4>
+                        <div class="card-desc">Génération de contenu assistée par IA.</div>
+                    </div>
+                </a>
+                <a href="https://azeoai.vercel.app" target="_blank" class="card">
+                    <div class="card-img-container">
+                        <img src="https://api.screenshotmachine.com/?key=685d56&url=https://azeoai.vercel.app&dimension=1024x768" class="card-img" alt="AzeoAI">
+                        <div class="card-overlay"><div class="view-link">Voir le site live →</div></div>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-tag">Agency / Automation</div>
+                        <h4 class="card-title">AzeoAI</h4>
+                        <div class="card-desc">Solutions d'automatisation d'entreprise.</div>
+                    </div>
+                </a>
+                <a href="https://breathtrailer.vercel.app" target="_blank" class="card">
+                    <div class="card-img-container">
+                        <img src="https://api.screenshotmachine.com/?key=685d56&url=https://breathtrailer.vercel.app&dimension=1024x768" class="card-img" alt="BreathTrailer">
+                        <div class="card-overlay"><div class="view-link">Voir le site live →</div></div>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-tag">Video / Cinema / SaaS</div>
+                        <h4 class="card-title">BreathTrailer</h4>
+                        <div class="card-desc">Production de trailers haute qualité.</div>
+                    </div>
+                </a>
+                <a href="https://dutygroup.vercel.app" target="_blank" class="card">
+                    <div class="card-img-container">
+                        <img src="https://api.screenshotmachine.com/?key=685d56&url=https://dutygroup.vercel.app&dimension=1024x768" class="card-img" alt="DutyGroup">
+                        <div class="card-overlay"><div class="view-link">Voir le site live →</div></div>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-tag">Corporate / Agency</div>
+                        <h4 class="card-title">DutyGroup</h4>
+                        <div class="card-desc">Site vitrine institutionnel premium.</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <div>
+                <h2>Investissement & Options</h2>
+                <p>Pas d'abonnement. Pas de frais cachés. Livré en 48h.</p>
+            </div>
+        </div>
+
+        <div class="pricing-grid">
+            <div class="price-card">
+                <div class="plan-name">Landing Page</div>
+                <div class="plan-price">490€<span> TTC</span></div>
+                <div class="plan-desc">Idéal pour valider un produit ou une offre unique rapidement.</div>
+                <ul class="features">
+                    <li>1 Page Focus Conversion</li>
+                    <li>Design UX Psychologique</li>
+                    <li>Vitesse optimisée (Core Web Vitals)</li>
+                    <li>Hébergement & Domaine (1 an)</li>
+                    <li>Formulaire de capture intégré</li>
+                </ul>
+                <a href="#" class="btn">Lancer ma page</a>
+            </div>
+
+            <div class="price-card featured">
+                <div class="featured-badge">OFFRE LA PLUS POPULAIRE</div>
+                <div class="plan-name">Site Web Pro</div>
+                <div class="plan-price">790€<span> TTC</span></div>
+                <div class="plan-desc">La machine de guerre pour les PME qui veulent dominer leur secteur.</div>
+                <ul class="features">
+                    <li>Jusqu'à 3 Pages (Home, Service, Contact)</li>
+                    <li>Optimisation SEO Google (Local)</li>
+                    <li>Capture de Leads Automatisée</li>
+                    <li>Intégration prise de RDV (Calendly)</li>
+                    <li>Formation gestion autonome</li>
+                </ul>
+                <a href="#" class="btn primary">Démarrer mon projet</a>
+            </div>
+
+            <div class="price-card">
+                <div class="plan-name">Custom Suite</div>
+                <div class="plan-price">1 290€<span> TTC</span></div>
+                <div class="plan-desc">Pour les business qui ont besoin d'une infrastructure complète.</div>
+                <ul class="features">
+                    <li>Jusqu'à 10 Pages sur-mesure</li>
+                    <li>Blog / Centre de ressources</li>
+                    <li>Multi-langues (FR/EN/ES)</li>
+                    <li>Intégrations CRM (Hubspot/GHL)</li>
+                    <li>Support Prioritaire 24/7</li>
+                </ul>
+                <a href="#" class="btn">Contacter un expert</a>
+            </div>
+        </div>
+
+        <div class="guarantee">
+            <h3>Garantie "Satisfait ou Remboursé"</h3>
+            <p>Livré en 48 heures chronos. Si le résultat ne correspond pas à vos objectifs après deux révisions, nous vous remboursons intégralement. Pas de questions, pas de drama.</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-val">48h</span>
+                    <span class="stat-label">Délai moyen</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-val">+40</span>
+                    <span class="stat-label">Sites Livrés</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-val">100%</span>
+                    <span class="stat-label">Satisfaction</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Scroll horizontal smooth pour la galerie
+        const gallery = document.querySelector('.gallery');
+        gallery.addEventListener('wheel', (evt) => {
+            evt.preventDefault();
+            gallery.scrollLeft += evt.deltaY;
+        });
+    </script>
+</body>
+</html>
