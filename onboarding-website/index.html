@@ -97,7 +97,7 @@ src="https://www.facebook.com/tr?id=791100870085010&ev=PageView&noscript=1"
 
 <!-- STEP 1 -->
 <div class="step active" data-step="1">
-  <div class="font-mono text-accent text-xs font-bold uppercase tracking-widest mb-6">[ ÉTAPE 01 / 09 ]</div>
+  <div class="font-mono text-accent text-xs font-bold uppercase tracking-widest mb-6">[ ÉTAPE 01 / 10 ]</div>
   <h2 class="font-heading title-uppercase text-3xl sm:text-4xl font-semibold text-white mb-4">VOTRE PROJET WEB.</h2>
   <p class="text-gray-400 text-sm sm:text-base font-sans mb-8 leading-relaxed">Parlez-nous de votre projet. Ces informations nous permettront de comprendre votre activité et vos besoins fondamentaux.</p>
   <div class="space-y-6">
@@ -160,7 +160,7 @@ src="https://www.facebook.com/tr?id=791100870085010&ev=PageView&noscript=1"
 
 <!-- STEP 2 -->
 <div class="step" data-step="2">
-  <div class="font-mono text-accent text-xs font-bold uppercase tracking-widest mb-6">[ ÉTAPE 02 / 09 ]</div>
+  <div class="font-mono text-accent text-xs font-bold uppercase tracking-widest mb-6">[ ÉTAPE 02 / 10 ]</div>
   <h2 class="font-heading title-uppercase text-3xl sm:text-4xl font-semibold text-white mb-4">CIBLE & STRATÉGIE.</h2>
   <p class="text-gray-400 text-sm sm:text-base font-sans mb-8 leading-relaxed">Définissons votre audience cible et vos objectifs stratégiques pour concevoir un site qui convertit vraiment.</p>
   <div class="space-y-6">
@@ -233,7 +233,7 @@ src="https://www.facebook.com/tr?id=791100870085010&ev=PageView&noscript=1"
 
 <!-- STEP 3 -->
 <div class="step" data-step="3">
-  <div class="font-mono text-accent text-xs font-bold uppercase tracking-widest mb-6">[ ÉTAPE 03 / 09 ]</div>
+  <div class="font-mono text-accent text-xs font-bold uppercase tracking-widest mb-6">[ ÉTAPE 03 / 10 ]</div>
   <h2 class="font-heading title-uppercase text-3xl sm:text-4xl font-semibold text-white mb-4">BRANDING & IDENTITÉ VISUELLE.</h2>
   <p class="text-gray-400 text-sm sm:text-base font-sans mb-8 leading-relaxed">Votre identité visuelle est le premier contact avec vos visiteurs. Aidez-nous à cerner votre univers graphique.</p>
   <div class="space-y-6">
@@ -302,7 +302,7 @@ src="https://www.facebook.com/tr?id=791100870085010&ev=PageView&noscript=1"
 
 <!-- STEP 4 -->
 <div class="step" data-step="4">
-  <div class="font-mono text-accent text-xs font-bold uppercase tracking-widest mb-6">[ ÉTAPE 04 / 09 ]</div>
+  <div class="font-mono text-accent text-xs font-bold uppercase tracking-widest mb-6">[ ÉTAPE 04 / 10 ]</div>
   <h2 class="font-heading title-uppercase text-3xl sm:text-4xl font-semibold text-white mb-4">STYLE & DIRECTION ARTISTIQUE.</h2>
   <p class="text-gray-400 text-sm sm:text-base font-sans mb-8 leading-relaxed">Définissons l'identité visuelle de votre site. Vos réponses nous permettront de créer un design parfaitement aligné avec votre vision.</p>
   <div class="space-y-6">
@@ -367,7 +367,7 @@ src="https://www.facebook.com/tr?id=791100870085010&ev=PageView&noscript=1"
 
 <!-- STEP 5 -->
 <div class="step" data-step="5">
-  <div class="font-mono text-accent text-xs font-bold uppercase tracking-widest mb-6">[ ÉTAPE 05 / 09 ]</div>
+  <div class="font-mono text-accent text-xs font-bold uppercase tracking-widest mb-6">[ ÉTAPE 05 / 10 ]</div>
   <h2 class="font-heading title-uppercase text-3xl sm:text-4xl font-semibold text-white mb-4">CONTENU & PAGES.</h2>
   <p class="text-gray-400 text-sm sm:text-base font-sans mb-8 leading-relaxed">Définissons la structure de votre site et les fonctionnalités dont vous avez besoin.</p>
   <div class="space-y-6">
@@ -385,7 +385,10 @@ src="https://www.facebook.com/tr?id=791100870085010&ev=PageView&noscript=1"
         <div onclick="toggleCheck(this)" data-value="temoignages" class="check-item flex items-center gap-3 border border-surfaceBorder bg-surface p-3"><div class="check-box w-5 h-5 border border-surfaceBorder flex items-center justify-center flex-shrink-0"></div><span class="text-sm text-gray-300 font-sans">Témoignages / Avis</span></div>
         <div onclick="toggleCheck(this)" data-value="eshop" class="check-item flex items-center gap-3 border border-surfaceBorder bg-surface p-3"><div class="check-box w-5 h-5 border border-surfaceBorder flex items-center justify-center flex-shrink-0"></div><span class="text-sm text-gray-300 font-sans">E-shop / Boutique</span></div>
         <div onclick="toggleCheck(this)" data-value="mentions-legales" class="check-item flex items-center gap-3 border border-surfaceBorder bg-surface p-3"><div class="check-box w-5 h-5 border border-surfaceBorder flex items-center justify-center flex-shrink-0"></div><span class="text-sm text-gray-300 font-sans">Mentions légales</span></div>
-        <div onclick="toggleCheck(this)" data-value="autre" class="check-item flex items-center gap-3 border border-surfaceBorder bg-surface p-3"><div class="check-box w-5 h-5 border border-surfaceBorder flex items-center justify-center flex-shrink-0"></div><span class="text-sm text-gray-300 font-sans">Autre</span></div>
+        <div onclick="toggleCheck(this); toggleConditional('pages-other-detail', this.classList.contains('checked'))" data-value="autre" class="check-item flex items-center gap-3 border border-surfaceBorder bg-surface p-3"><div class="check-box w-5 h-5 border border-surfaceBorder flex items-center justify-center flex-shrink-0"></div><span class="text-sm text-gray-300 font-sans">Autre</span></div>
+      </div>
+      <div id="pages-other-detail" class="conditional mt-3">
+        <textarea id="q-pages-other" rows="3" placeholder="Décrivez les pages supplémentaires que vous souhaitez (ex: page équipe, page partenaires, page événements...)" class="w-full bg-surface border border-surfaceBorder text-white font-sans text-sm p-4 resize-none placeholder-gray-600 leading-relaxed"></textarea>
       </div>
     </div>
     <div>
@@ -431,7 +434,7 @@ src="https://www.facebook.com/tr?id=791100870085010&ev=PageView&noscript=1"
 
 <!-- STEP 6 -->
 <div class="step" data-step="6">
-  <div class="font-mono text-accent text-xs font-bold uppercase tracking-widest mb-6">[ ÉTAPE 06 / 09 ]</div>
+  <div class="font-mono text-accent text-xs font-bold uppercase tracking-widest mb-6">[ ÉTAPE 06 / 10 ]</div>
   <h2 class="font-heading title-uppercase text-3xl sm:text-4xl font-semibold text-white mb-4">COPYWRITING & TON DE VOIX.</h2>
   <p class="text-gray-400 text-sm sm:text-base font-sans mb-8 leading-relaxed">Les mots comptent autant que le design. Aidez-nous à trouver la voix parfaite pour votre audience.</p>
   <div class="space-y-6">
@@ -476,7 +479,7 @@ src="https://www.facebook.com/tr?id=791100870085010&ev=PageView&noscript=1"
 
 <!-- STEP 7 -->
 <div class="step" data-step="7">
-  <div class="font-mono text-accent text-xs font-bold uppercase tracking-widest mb-6">[ ÉTAPE 07 / 09 ]</div>
+  <div class="font-mono text-accent text-xs font-bold uppercase tracking-widest mb-6">[ ÉTAPE 07 / 10 ]</div>
   <h2 class="font-heading title-uppercase text-3xl sm:text-4xl font-semibold text-white mb-4">DOMAINE & HÉBERGEMENT.</h2>
   <p class="text-gray-400 text-sm sm:text-base font-sans mb-8 leading-relaxed">Faisons le point sur votre infrastructure technique.</p>
   <div class="space-y-6">
@@ -528,7 +531,7 @@ src="https://www.facebook.com/tr?id=791100870085010&ev=PageView&noscript=1"
 
 <!-- STEP 8 -->
 <div class="step" data-step="8">
-  <div class="font-mono text-accent text-xs font-bold uppercase tracking-widest mb-6">[ ÉTAPE 08 / 09 ]</div>
+  <div class="font-mono text-accent text-xs font-bold uppercase tracking-widest mb-6">[ ÉTAPE 08 / 10 ]</div>
   <h2 class="font-heading title-uppercase text-3xl sm:text-4xl font-semibold text-white mb-4">ACCÈS & RESSOURCES.</h2>
   <p class="text-gray-400 text-sm sm:text-base font-sans mb-8 leading-relaxed">Pour assurer une transition fluide, indiquez-nous les accès dont vous disposez.</p>
   <div class="space-y-6">
@@ -579,9 +582,39 @@ src="https://www.facebook.com/tr?id=791100870085010&ev=PageView&noscript=1"
   <div class="mt-8 flex gap-3"><button onclick="goToStep(7)" class="px-6 py-4 border border-surfaceBorder text-gray-400 font-heading font-bold text-sm uppercase hover:border-white hover:text-white transition-colors">← RETOUR</button><button onclick="validateAndNext(8)" class="flex-1 sm:flex-none px-8 py-4 bg-accent text-black font-heading font-bold text-sm uppercase hover:bg-accentHover transition-colors">CONTINUER →</button></div>
 </div>
 
-<!-- STEP 9 -->
+<!-- STEP 9: Documents & Dernières demandes -->
 <div class="step" data-step="9">
-  <div class="font-mono text-accent text-xs font-bold uppercase tracking-widest mb-6">[ ÉTAPE 09 / 09 ]</div>
+  <div class="font-mono text-accent text-xs font-bold uppercase tracking-widest mb-6">[ ÉTAPE 09 / 10 ]</div>
+  <h2 class="font-heading title-uppercase text-3xl sm:text-4xl font-semibold text-white mb-4">VOS DOCUMENTS & DERNIÈRES DEMANDES.</h2>
+  <p class="text-gray-400 text-sm sm:text-base font-sans mb-8 leading-relaxed">Partagez-nous vos fichiers visuels et dites-nous s'il y a quoi que ce soit d'autre que vous aimeriez.</p>
+  <div class="space-y-6">
+    <!-- Google Drive -->
+    <div>
+      <label class="block font-mono text-xs text-gray-500 uppercase mb-2">Lien Google Drive avec vos documents visuels</label>
+      <p class="text-gray-500 text-xs font-sans mb-3 leading-relaxed">Uploadez tous vos fichiers (logo, photos, vidéos, charte graphique, textes...) dans un dossier Google Drive et partagez-nous le lien en accès éditeur.</p>
+      <div class="border border-surfaceBorder bg-surface/50 p-4 mb-4">
+        <div class="font-mono text-xs text-accent uppercase mb-3">Comment faire en 4 clics :</div>
+        <ol class="text-gray-400 text-xs font-sans leading-relaxed space-y-2 list-decimal list-inside">
+          <li>Allez sur <span class="text-white">drive.google.com</span> et créez un nouveau dossier (bouton <span class="text-white">+ Nouveau</span> → <span class="text-white">Nouveau dossier</span>)</li>
+          <li>Glissez-déposez tous vos fichiers (logo, photos, vidéos, textes, charte...) dans ce dossier</li>
+          <li>Clic droit sur le dossier → <span class="text-white">Partager</span> → <span class="text-white">Obtenir le lien</span></li>
+          <li>Changez l'accès en <span class="text-white">« Tous les utilisateurs ayant le lien »</span> → rôle <span class="text-white">« Éditeur »</span> → copiez le lien</li>
+        </ol>
+      </div>
+      <input type="url" id="q-drive-link" placeholder="https://drive.google.com/drive/folders/..." class="w-full bg-surface border border-surfaceBorder text-white font-mono text-sm p-4 placeholder-gray-600">
+    </div>
+    <!-- Autre chose -->
+    <div>
+      <label class="block font-mono text-xs text-gray-500 uppercase mb-2">Y a-t-il autre chose que vous souhaitez pour votre site ?</label>
+      <textarea id="q-anything-else" rows="4" placeholder="Fonctionnalité spécifique, intégration particulière, contrainte technique, idée que vous n'avez pas pu exprimer dans les étapes précédentes... Dites-nous tout !" class="w-full bg-surface border border-surfaceBorder text-white font-sans text-sm p-4 resize-none placeholder-gray-600 leading-relaxed"></textarea>
+    </div>
+  </div>
+  <div class="mt-8 flex gap-3"><button onclick="goToStep(8)" class="px-6 py-4 border border-surfaceBorder text-gray-400 font-heading font-bold text-sm uppercase hover:border-white hover:text-white transition-colors">← RETOUR</button><button onclick="validateAndNext(9)" class="flex-1 sm:flex-none px-8 py-4 bg-accent text-black font-heading font-bold text-sm uppercase hover:bg-accentHover transition-colors">CONTINUER →</button></div>
+</div>
+
+<!-- STEP 10: Contact -->
+<div class="step" data-step="10">
+  <div class="font-mono text-accent text-xs font-bold uppercase tracking-widest mb-6">[ ÉTAPE 10 / 10 ]</div>
   <h2 class="font-heading title-uppercase text-3xl sm:text-4xl font-semibold text-white mb-4">CONTACT & FINALISATION.</h2>
   <p class="text-gray-400 text-sm sm:text-base font-sans mb-8 leading-relaxed">Dernière ligne droite. Vos coordonnées et quelques détails pour finaliser votre brief.</p>
   <div class="space-y-6">
@@ -598,24 +631,6 @@ src="https://www.facebook.com/tr?id=791100870085010&ev=PageView&noscript=1"
       <input type="tel" id="q-phone" placeholder="+33 6 12 34 56 78" class="w-full bg-surface border border-surfaceBorder text-white font-mono text-sm p-4 placeholder-gray-600">
     </div>
     <div>
-      <label class="block font-mono text-xs text-gray-500 uppercase mb-3">Délai souhaité</label>
-      <div class="space-y-2" id="q-deadline">
-        <button onclick="selectChoice(this, 'q-deadline')" data-value="urgent" class="choice-btn w-full border border-surfaceBorder bg-surface p-4 text-left flex items-center gap-4"><span class="w-8 h-8 border border-red-500/30 flex items-center justify-center font-mono text-xs text-red-400 flex-shrink-0">!</span><span class="text-sm text-gray-300 font-sans">Urgent — moins de 2 semaines</span></button>
-        <button onclick="selectChoice(this, 'q-deadline')" data-value="normal" class="choice-btn w-full border border-surfaceBorder bg-surface p-4 text-left flex items-center gap-4"><span class="w-8 h-8 border border-surfaceBorder flex items-center justify-center font-mono text-xs text-gray-500 flex-shrink-0">~</span><span class="text-sm text-gray-300 font-sans">Normal — 2 à 4 semaines</span></button>
-        <button onclick="selectChoice(this, 'q-deadline')" data-value="pas-presse" class="choice-btn w-full border border-surfaceBorder bg-surface p-4 text-left flex items-center gap-4"><span class="w-8 h-8 border border-surfaceBorder flex items-center justify-center font-mono text-xs text-gray-500 flex-shrink-0">∞</span><span class="text-sm text-gray-300 font-sans">Pas pressé</span></button>
-      </div>
-    </div>
-    <div>
-      <label class="block font-mono text-xs text-gray-500 uppercase mb-3">Budget indicatif</label>
-      <div class="space-y-2" id="q-budget">
-        <button onclick="selectChoice(this, 'q-budget')" data-value="moins-500" class="choice-btn w-full border border-surfaceBorder bg-surface p-4 text-left flex items-center gap-4"><span class="w-8 h-8 border border-surfaceBorder flex items-center justify-center font-mono text-xs text-gray-500 flex-shrink-0">€</span><span class="text-sm text-gray-300 font-sans">Moins de 500€</span></button>
-        <button onclick="selectChoice(this, 'q-budget')" data-value="500-1000" class="choice-btn w-full border border-surfaceBorder bg-surface p-4 text-left flex items-center gap-4"><span class="w-8 h-8 border border-surfaceBorder flex items-center justify-center font-mono text-xs text-gray-500 flex-shrink-0">€€</span><span class="text-sm text-gray-300 font-sans">500€ — 1 000€</span></button>
-        <button onclick="selectChoice(this, 'q-budget')" data-value="1000-2000" class="choice-btn w-full border border-surfaceBorder bg-surface p-4 text-left flex items-center gap-4"><span class="w-8 h-8 border border-surfaceBorder flex items-center justify-center font-mono text-xs text-gray-500 flex-shrink-0">€€€</span><span class="text-sm text-gray-300 font-sans">1 000€ — 2 000€</span></button>
-        <button onclick="selectChoice(this, 'q-budget')" data-value="2000-plus" class="choice-btn w-full border border-surfaceBorder bg-surface p-4 text-left flex items-center gap-4"><span class="w-8 h-8 border border-accent/30 bg-accent/5 flex items-center justify-center font-mono text-xs text-accent flex-shrink-0">€€€€</span><span class="text-sm text-gray-300 font-sans">2 000€ et plus</span></button>
-        <button onclick="selectChoice(this, 'q-budget')" data-value="a-discuter" class="choice-btn w-full border border-surfaceBorder bg-surface p-4 text-left flex items-center gap-4"><span class="w-8 h-8 border border-surfaceBorder flex items-center justify-center font-mono text-xs text-gray-500 flex-shrink-0">?</span><span class="text-sm text-gray-300 font-sans">À discuter</span></button>
-      </div>
-    </div>
-    <div>
       <label class="block font-mono text-xs text-gray-500 uppercase mb-3">Comment avez-vous entendu parler de QuickShip ?</label>
       <div class="space-y-2" id="q-referral">
         <button onclick="selectChoice(this, 'q-referral')" data-value="reseaux-sociaux" class="choice-btn w-full border border-surfaceBorder bg-surface p-4 text-left flex items-center gap-4"><span class="w-8 h-8 border border-surfaceBorder flex items-center justify-center font-mono text-xs text-gray-500 flex-shrink-0">A</span><span class="text-sm text-gray-300 font-sans">Réseaux sociaux</span></button>
@@ -630,11 +645,11 @@ src="https://www.facebook.com/tr?id=791100870085010&ev=PageView&noscript=1"
       <textarea id="q-notes" rows="3" placeholder="Quelque chose à ajouter ?..." class="w-full bg-surface border border-surfaceBorder text-white font-sans text-sm p-4 resize-none placeholder-gray-600 leading-relaxed"></textarea>
     </div>
   </div>
-  <div class="mt-8 flex gap-3"><button onclick="goToStep(8)" class="px-6 py-4 border border-surfaceBorder text-gray-400 font-heading font-bold text-sm uppercase hover:border-white hover:text-white transition-colors">← RETOUR</button><button onclick="submitForm()" id="submit-btn" class="flex-1 px-8 py-5 bg-accent text-black font-heading font-bold text-lg uppercase hover:bg-accentHover transition-colors">ENVOYER MON BRIEF →</button></div>
+  <div class="mt-8 flex gap-3"><button onclick="goToStep(9)" class="px-6 py-4 border border-surfaceBorder text-gray-400 font-heading font-bold text-sm uppercase hover:border-white hover:text-white transition-colors">← RETOUR</button><button onclick="submitForm()" id="submit-btn" class="flex-1 px-8 py-5 bg-accent text-black font-heading font-bold text-lg uppercase hover:bg-accentHover transition-colors">ENVOYER MON BRIEF →</button></div>
 </div>
 
-<!-- STEP 10: BRIEF -->
-<div class="step" data-step="10">
+<!-- STEP 11: BRIEF -->
+<div class="step" data-step="11">
   <div class="text-center mb-8">
     <div class="inline-flex items-center justify-center w-20 h-20 border-2 border-accent bg-accent/10 mb-8">
       <svg class="w-10 h-10 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
@@ -661,7 +676,7 @@ src="https://www.facebook.com/tr?id=791100870085010&ev=PageView&noscript=1"
     </div>
     <script>
         let currentStep = 1;
-        const totalSteps = 9;
+        const totalSteps = 10;
         const WEBHOOK_URL = 'https://webhook-production-b9fc.up.railway.app/submit';
 
         function getValue(id) { const el = document.getElementById(id); return el ? el.value.trim() : ''; }
@@ -730,7 +745,7 @@ src="https://www.facebook.com/tr?id=791100870085010&ev=PageView&noscript=1"
                 style_universe: getChoiceValue('q-style-universe'), color_mood: getChoiceValue('q-color-mood'),
                 inspiration_sites: getValue('q-inspiration-sites'), design_elements: getCheckboxValues('q-design-elements'),
                 design_dislikes: getValue('q-design-dislikes'), animation_level: getChoiceValue('q-animation-level'),
-                pages: getCheckboxValues('q-pages'), texts_ready: getChoiceValue('q-texts'), features: getCheckboxValues('q-features'),
+                pages: getCheckboxValues('q-pages'), pages_other: getValue('q-pages-other'), texts_ready: getChoiceValue('q-texts'), features: getCheckboxValues('q-features'),
                 languages: getCheckboxValues('q-languages'),
                 tone: getChoiceValue('q-tone'), slogan: getValue('q-slogan'), selling_points: getValue('q-selling-points'),
                 differentiator: getValue('q-differentiator'), seo_keywords: getValue('q-seo-keywords'),
@@ -741,8 +756,9 @@ src="https://www.facebook.com/tr?id=791100870085010&ev=PageView&noscript=1"
                 access_registrar: getChoiceValue('q-access-registrar'), access_hosting: getChoiceValue('q-access-hosting'),
                 access_analytics: getChoiceValue('q-access-analytics'), socials: getCheckboxValues('q-socials'),
                 other_access: getValue('q-other-access'),
+                drive_link: getValue('q-drive-link'), anything_else: getValue('q-anything-else'),
                 fullname: getValue('q-fullname'), email: getValue('q-email'), phone: getValue('q-phone'),
-                deadline: getChoiceValue('q-deadline'), budget: getChoiceValue('q-budget'), referral: getChoiceValue('q-referral'),
+                referral: getChoiceValue('q-referral'),
                 notes: getValue('q-notes'),
                 submitted_at: new Date().toISOString(), form_type: 'onboarding-website'
             };
@@ -779,7 +795,7 @@ l('Sites d\'inspiration',d.inspiration_sites||'Non renseigné'),
 a('Éléments design',d.design_elements), l('Ce qu\'il n\'aime pas',d.design_dislikes), l('Niveau animations',d.animation_level),
 '',
 '▸ 5. CONTENU & PAGES',
-a('Pages',d.pages), l('Textes prêts',d.texts_ready), a('Fonctionnalités',d.features), a('Langues',d.languages),
+a('Pages',d.pages), l('Pages autres',d.pages_other), l('Textes prêts',d.texts_ready), a('Fonctionnalités',d.features), a('Langues',d.languages),
 '',
 '▸ 6. COPYWRITING & TON',
 l('Ton',d.tone), l('Slogan',d.slogan||'Non renseigné'), l('Arguments de vente',d.selling_points),
@@ -795,9 +811,12 @@ l('Emails pro',d.emails), l('Service email',d.email_service), l('Analytics',d.an
 l('Accès registrar',d.access_registrar), l('Accès hébergement',d.access_hosting), l('Accès Analytics',d.access_analytics),
 a('Réseaux sociaux',d.socials), l('Autres accès',d.other_access||'Aucun'),
 '',
-'▸ 9. CONTACT',
+'▸ 9. DOCUMENTS & DERNIÈRES DEMANDES',
+l('Lien Google Drive',d.drive_link||'Non fourni'), l('Autre chose souhaitée',d.anything_else||'Rien'),
+'',
+'▸ 10. CONTACT',
 l('Nom',d.fullname), l('Email',d.email), l('Téléphone',d.phone||'Non renseigné'),
-l('Délai',d.deadline), l('Budget',d.budget), l('Source',d.referral), l('Notes',d.notes||'Aucune'),
+l('Source',d.referral), l('Notes',d.notes||'Aucune'),
 '',
 '════════════════════════════════════════════'
             ].filter(x=>x!==undefined).join('\n').replace(/\n{3,}/g,'\n\n');
@@ -812,7 +831,7 @@ l('Délai',d.deadline), l('Budget',d.budget), l('Source',d.referral), l('Notes',
             const data = collectAllData();
             document.getElementById('brief-output').textContent = generateBrief(data);
             try { fetch(WEBHOOK_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data) }); } catch(e) { console.error('Webhook error:',e); }
-            goToStep(10);
+            goToStep(11);
             document.getElementById('progress-container').style.display='none';
         }
 
@@ -827,8 +846,8 @@ l('Délai',d.deadline), l('Budget',d.budget), l('Source',d.referral), l('Notes',
                 e.preventDefault();
                 const a=document.querySelector('.step.active'); if(!a) return;
                 const s=parseInt(a.dataset.step);
-                if(s>=1&&s<=8) validateAndNext(s);
-                else if(s===9) submitForm();
+                if(s>=1&&s<=9) validateAndNext(s);
+                else if(s===10) submitForm();
             }
         });
     </script>
