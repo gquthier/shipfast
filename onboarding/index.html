@@ -969,6 +969,57 @@ Priorité : fonctionnel > beau. Le MVP doit MARCHER.
             document.getElementById('onboardingForm').classList.add('hidden');
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Fire-and-forget: send onboarding data to webhook
+            try {
+                const webhookData = {
+                    form_type: 'onboarding',
+                    project_name: getValue('project_name'),
+                    elevator_pitch: getValue('elevator_pitch'),
+                    detailed_description: getValue('detailed_description'),
+                    problem_solved: getValue('problem_solved'),
+                    differentiator: getValue('differentiator'),
+                    inspirations: getValue('inspirations'),
+                    target_user: getValue('target_user'),
+                    market_type: getValue('market_type'),
+                    geo_market: getValue('geo_market'),
+                    languages: getValue('languages'),
+                    competitors: getValue('competitors'),
+                    features_must: getValue('features_must'),
+                    features_nice: getValue('features_nice'),
+                    user_journey: getValue('user_journey'),
+                    user_roles: getValue('user_roles'),
+                    screen_count: getValue('screen_count'),
+                    platform: getCheckboxValues('platform'),
+                    auth: getCheckboxValues('auth'),
+                    integrations: getCheckboxValues('integrations'),
+                    other_integrations: getValue('other_integrations'),
+                    admin_dashboard: getValue('admin_dashboard'),
+                    sensitive_data: getValue('sensitive_data'),
+                    visual_style: getValue('visual_style'),
+                    brand_color: getValue('brand_color_hex') || getValue('brand_color'),
+                    has_logo: getValue('has_logo'),
+                    design_references: getValue('design_references'),
+                    revenue_model: getCheckboxValues('revenue_model'),
+                    pricing_plan: getValue('pricing_plan'),
+                    mvp_goal: getValue('mvp_goal'),
+                    kpis: getValue('kpis'),
+                    existing_code: getValue('existing_code'),
+                    existing_repo: getValue('existing_repo'),
+                    domain: getValue('domain'),
+                    hosting: getValue('hosting'),
+                    email: getValue('email'),
+                    name: getValue('full_name'),
+                    submitted_at: new Date().toISOString()
+                };
+                fetch('https://webhook-production-b9fc.up.railway.app/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(webhookData)
+                }).catch(() => {});
+            } catch (e) {
+                console.error('Webhook error:', e);
+            }
         }
 
         function copyPrompt() {

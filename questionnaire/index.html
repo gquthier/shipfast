@@ -463,6 +463,7 @@ src="https://www.facebook.com/tr?id=791100870085010&ev=PageView&noscript=1"
             answers.email = email;
             answers.name = document.getElementById('q-name').value.trim() || 'Non renseigné';
             answers.submitted_at = new Date().toISOString();
+            answers.form_type = 'questionnaire';
 
             const btn = document.getElementById('submit-btn');
             btn.textContent = 'ENVOI EN COURS...';
