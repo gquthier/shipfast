@@ -15,7 +15,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+    <!-- Cal.com -->
+    <script type="text/javascript">
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+      Cal("init", "appel-quickship-site-web", {origin:"https://app.cal.com"});
+      Cal.ns["appel-quickship-site-web"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+    </script>
 
     <script>
         tailwind.config = {
@@ -107,7 +113,7 @@ src="https://www.facebook.com/tr?id=791100870085010&ev=PageView&noscript=1"
                 <div class="flex items-center gap-3">
                     <a href="#booking"
                         class="magnetic-btn hidden sm:inline-flex items-center justify-center px-6 py-3 text-sm font-mono font-bold text-black bg-accent hover:bg-accentHover transition-colors rounded-none">
-                        <span class="magnetic-text">RÉSERVER UN CALL</span>
+                        <span class="magnetic-text">RÉSERVER UN APPEL DESIGN</span>
                     </a>
                     <button id="mobile-menu-btn" class="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5" aria-label="Menu">
                         <span class="block w-6 h-0.5 bg-white transition-all duration-300 origin-center" id="bar1"></span>
@@ -159,7 +165,7 @@ src="https://www.facebook.com/tr?id=791100870085010&ev=PageView&noscript=1"
 
                     <a href="#booking"
                         class="magnetic-btn inline-flex items-center gap-4 px-8 py-4 bg-white text-black font-heading font-bold text-lg uppercase tracking-wide hover:bg-gray-200 transition-colors gs-reveal">
-                        <span class="magnetic-text">DEMANDER UN DEVIS GRATUIT</span>
+                        <span class="magnetic-text">RÉSERVER UN CALL DE BRIEFING</span>
                     </a>
                 </div>
             </div>
@@ -173,19 +179,29 @@ src="https://www.facebook.com/tr?id=791100870085010&ev=PageView&noscript=1"
                 <div class="grid lg:grid-cols-5 gap-12">
                     <div class="lg:col-span-2 gs-reveal">
                         <h2 class="font-heading title-uppercase text-3xl sm:text-5xl font-semibold text-white mb-6">
-                            RÉSERVEZ VOTRE<br><span class="text-accent">CALL DÉCOUVERTE.</span>
+                            RÉSERVEZ VOTRE<br><span class="text-accent">APPEL DESIGN.</span>
                         </h2>
                         <p class="text-gray-400 font-mono text-sm leading-relaxed mb-8">
-                            > 15 minutes pour discuter de votre projet.<br>
-                            > Devis personnalisé immédiat.<br>
+                            > 15 minutes pour définir votre vision.<br>
+                            > Audit de vos besoins design immédiat.<br>
                             > Gratuit, sans engagement.
                         </p>
                     </div>
                     <div class="lg:col-span-3 gs-reveal">
                         <div class="border border-surfaceBorder bg-surface p-2">
-                            <div class="calendly-inline-widget"
-                                data-url="https://calendly.com/gauthierthiry/audit-seo-gratuit-lazyrank-clone?primary_color=ccff00&text_color=e5e5e5&background_color=121212"
-                                style="min-width:100%;height:650px;"></div>
+                            <!-- Cal inline embed code begins -->
+                            <div style="width:100%;height:650px;overflow:scroll" id="my-cal-inline-appel-quickship-site-web-1"></div>
+                            <script type="text/javascript">
+                            (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+                            Cal("init", "appel-quickship-site-web-1", {origin:"https://app.cal.com"});
+                            Cal.ns["appel-quickship-site-web-1"]("inline", {
+                                elementOrSelector:"#my-cal-inline-appel-quickship-site-web-1",
+                                config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"dark"},
+                                calLink: "dutygroup/appel-quickship-site-web",
+                            });
+                            Cal.ns["appel-quickship-site-web-1"]("ui", {"styles":{"branding":{"brandColor":"#CCFF00"}},"hideEventTypeDetails":false,"layout":"month_view"});
+                            </script>
+                            <!-- Cal inline embed code ends -->
                         </div>
                     </div>
                 </div>
@@ -328,7 +344,7 @@ src="https://www.facebook.com/tr?id=791100870085010&ev=PageView&noscript=1"
                 <div class="mt-24 text-center gs-reveal">
                     <a href="#booking"
                         class="magnetic-btn inline-flex items-center justify-center px-10 py-5 text-lg font-heading font-bold text-black bg-accent hover:bg-white transition-colors uppercase">
-                        <span class="magnetic-text">DEMANDER MON DEVIS GRATUIT</span>
+                        <span class="magnetic-text">RÉSERVER MON APPEL DESIGN</span>
                     </a>
                 </div>
 
@@ -343,19 +359,29 @@ src="https://www.facebook.com/tr?id=791100870085010&ev=PageView&noscript=1"
                 <div class="grid lg:grid-cols-5 gap-12">
                     <div class="lg:col-span-2 gs-reveal">
                         <h2 class="font-heading title-uppercase text-3xl sm:text-5xl font-semibold text-white mb-6">
-                            RÉSERVEZ VOTRE<br><span class="text-accent">CALL DÉCOUVERTE.</span>
+                            RÉSERVEZ VOTRE<br><span class="text-accent">APPEL DESIGN.</span>
                         </h2>
                         <p class="text-gray-400 font-mono text-sm leading-relaxed mb-8">
-                            > 15 minutes pour discuter de votre projet.<br>
-                            > Devis personnalisé immédiat.<br>
+                            > 15 minutes pour définir votre vision.<br>
+                            > Audit de vos besoins design immédiat.<br>
                             > Gratuit, sans engagement.
                         </p>
                     </div>
                     <div class="lg:col-span-3 gs-reveal">
                         <div class="border border-surfaceBorder bg-surface p-2">
-                            <div class="calendly-inline-widget"
-                                data-url="https://calendly.com/gauthierthiry/audit-seo-gratuit-lazyrank-clone?primary_color=ccff00&text_color=e5e5e5&background_color=121212"
-                                style="min-width:100%;height:650px;"></div>
+                            <!-- Cal inline embed code begins -->
+                            <div style="width:100%;height:650px;overflow:scroll" id="my-cal-inline-appel-quickship-site-web-2"></div>
+                            <script type="text/javascript">
+                            (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+                            Cal("init", "appel-quickship-site-web-2", {origin:"https://app.cal.com"});
+                            Cal.ns["appel-quickship-site-web-2"]("inline", {
+                                elementOrSelector:"#my-cal-inline-appel-quickship-site-web-2",
+                                config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"dark"},
+                                calLink: "dutygroup/appel-quickship-site-web",
+                            });
+                            Cal.ns["appel-quickship-site-web-2"]("ui", {"styles":{"branding":{"brandColor":"#CCFF00"}},"hideEventTypeDetails":false,"layout":"month_view"});
+                            </script>
+                            <!-- Cal inline embed code ends -->
                         </div>
                     </div>
                 </div>
